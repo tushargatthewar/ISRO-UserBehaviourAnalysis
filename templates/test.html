@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhuvan Portal</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Top Section with Logos -->
+    <div class="header">
+        <img src="/static/images/bhuvan-logo.png" class="logo left" alt="Left Logo">
+        <img src="/static/images/g24.png" class="logo right" alt="Right Logo">
+    </div>
+
+    <!-- Navigation Bar with Buttons -->
+    <nav class="navbar">
+        <a href="home.html"><button class="nav-btn">Home</button></a>
+        <a href="about.html"><button class="nav-btn">About</button></a>
+        <a href="services.html"><button class="nav-btn">Services</button></a>
+        <a href="maps.html"><button class="nav-btn">Maps</button></a>
+        <a href="projects.html"><button class="nav-btn">Projects</button></a>
+        <a href="contact.html"><button class="nav-btn">Contact</button></a>
+        <a href="bhuvan.html"><button class="nav-btn">Bhuvan</button></a>
+        <a href="gallery.html"><button class="nav-btn">Gallery</button></a>
+        <a href="support.html"><button class="nav-btn">Support</button></a>
+    </nav>
+    <marquee behavior="scroll" direction="left">Welcome to the Bhuvan Portal - Explore Geospatial Data!</marquee>
+
+    <!-- Slider Image Section -->
+    <div class="slider">
+        <img src="/static/images/landscapebhuvanhead" alt="Slider Image">
+    </div>
+
+    <!-- Boxes with Buttons Below Image -->
+    <section class="info-section">
+        <div class="info-box" onmouseover="trackHover('Bhuvan 2D Box', 'info-section')">
+            <img src="/static/images/s1.png" alt="Bhuvan 2D">
+            <p>Bhuvan 2D</p>
+            <a href="support.html" onclick="trackClick('Bhuvan 2D Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
+        </div>
+        <div class="info-box" onmouseover="trackHover('Bhuvan 3D Box', 'info-section')">
+            <img src="/static/images/s2.png" alt="Bhuvan 3D">
+            <p>Bhuvan 3D</p>
+            <a href="support.html" onclick="trackClick('Bhuvan 3D Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
+        </div>
+        <div class="info-box" onmouseover="trackHover('Bhuvan Lite Box', 'info-section')">
+            <img src="/static/images/s3.png" alt="Bhuvan Lite">
+            <p>Bhuvan Lite</p>
+            <a href="support.html" onclick="trackClick('Bhuvan Lite Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
+        </div>
+        <div class="info-box" onmouseover="trackHover('Bhuvan Data Archive Box', 'info-section')">
+            <img src="/static/images/s4.png" alt="Bhuvan Data Archive">
+            <p>Bhuvan Data Archive</p>
+            <a href="support.html" onclick="trackClick('Bhuvan Data Archive Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
+        </div>
+    </section>
+
+    <!-- Applications of Bhuvan Section -->
+    <section class="bhuvan-apps">
+        <h2>Applications of Bhuvan</h2>
+        <div class="app-box" onmouseover="trackHover('Agriculture App Box', 'bhuvan-apps')">
+            <img src="/static/images/a1.png" alt="Agriculture 1">
+            <p>Agriculture</p>
+            <a href="support.html" onclick="trackClick('Agriculture View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
+        </div>
+        <div class="app-box" onmouseover="trackHover('Water App Box', 'bhuvan-apps')">
+            <img src="/static/images/a2.png" alt="Water 2">
+            <p>Water</p>
+            <a href="support.html" onclick="trackClick('Water View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
+        </div>
+        <div class="app-box" onmouseover="trackHover('Forestry App Box', 'bhuvan-apps')">
+            <img src="/static/images/a3.png" alt="Forestry 3">
+            <p>Forestry</p>
+            <a href="support.html" onclick="trackClick('Forestry View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
+        </div>
+    </section>
+
+    <section class="bhuvan-apps">
+        <h2>Applications of Bhuvan</h2>
+        <div class="app-box" onmouseover="trackHover('Central App Box', 'bhuvan-apps')">
+            <img src="/static/images/central_app.png" alt="App 4">
+            <p>Central App</p>
+            <a href="support.html" onclick="trackClick('Central App View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
+        </div>
+        <div class="app-box" onmouseover="trackHover('Special App Box', 'bhuvan-apps')">
+            <img src="/static/images/special_app.png" alt="App 5">
+            <p>Special App</p>
+            <a href="support.html" onclick="trackClick('Special App View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
+        </div>
+        <div class="app-box" onmouseover="trackHover('Gov App Box', 'bhuvan-apps')">
+            <img src="/static/images/g_gov_app.png" alt="App 6">
+            <p>Gov App</p>
+            <a href="support.html" onclick="trackClick('Gov App View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
+        </div>
+    </section>
+
+    <!-- Map Section using Leaflet.js -->
+    <h2>MAP</h2>
+    <div id="map" style="height: 400px;"></div>
+
+    <!-- Leaflet.js Script -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map and set its view
+        var map = L.map('map').setView([20.5937, 78.9629], 5); // Center of India
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+        }).addTo(map);
+
+        // Define locations with their coordinates, names, and URLs
+        var isroLocations = [
+            { name: "DOS - Department of Space", lat: 28.6139, lng: 77.2090, url: "http://www.isro.gov.in/about-isro/department-space" }, // New Delhi
+            { name: "ISRO HQ - ISRO Headquarters", lat: 12.9716, lng: 77.5946, url: "http://www.isro.gov.in/" }, // Bengaluru
+            { name: "VSSC - Vikram Sarabhai Space Centre", lat: 8.5241, lng: 76.9366, url: "http://www.vssc.gov.in/" }, // Thiruvananthapuram
+            { name: "LPSC - Liquid Propulsion Systems Centre", lat: 12.9716, lng: 77.5946, url: "http://www.lpsc.gov.in/" }, // Bengaluru
+            { name: "SDSC - Satish Dhawan Space Centre", lat: 13.2050, lng: 80.2730, url: "http://www.sdsctiruchirapalli.gov.in/" }, // Chennai
+            { name: "URSC - U R Rao Satellite Centre", lat: 12.9716, lng: 77.5946, url: "http://www.ursc.gov.in/" }, // Bengaluru
+            { name: "SAC - Space Applications Centre", lat: 23.0225, lng: 72.5714, url: "http://www.sac.gov.in/" }, // Ahmedabad
+            { name: "NRSC - National Remote Sensing Centre", lat: 17.3850, lng: 78.4867, url: "http://www.nrsc.gov.in/" } // Hyderabad
+        ];
+
+        // Add markers with popups and links
+        isroLocations.forEach(function(location) {
+            L.marker([location.lat, location.lng])
+                .addTo(map)
+                .bindPopup('<b>' + location.name + '</b><br><a href="' + location.url + '" target="_blank">Visit Website</a>')
+                .bindTooltip(location.name, { permanent: true, direction: 'right' });
+        });
+
+        // Function to track clicks
+        function trackClick(buttonName, section) {
+            fetch('/track-click', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ buttonName: buttonName, section: section, eventType: 'click' })
+            }).catch(err => console.error('Error:', err));
+        }
+
+        // Function to track hovers
+        function trackHover(elementName, section) {
+            fetch('/track-click', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ elementName: elementName, section: section, eventType: 'hover' })
+            }).catch(err => console.error('Error:', err));
+        }
+    </script>
+</body>
+</html>

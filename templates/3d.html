@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Globe with CesiumJS</title>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.104/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #cesiumContainer {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Globe Map Container -->
+    <div id="cesiumContainer"></div>
+
+    <!-- CesiumJS Library -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.104/Build/Cesium/Cesium.js"></script>
+    <script>
+        // Initialize the Cesium viewer with OpenStreetMap imagery
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            imageryProvider: new Cesium.OpenStreetMapImageryProvider({ 
+                url: 'https://a.tile.openstreetmap.org/' 
+            }), // Use OpenStreetMap imagery
+            baseLayerPicker: false, // Disable the layer picker UI
+            terrainProvider: Cesium.createWorldTerrain(), // Use Cesium's world terrain
+            sceneModePicker: false // Disable the 2D/3D mode switching button
+        });
+
+        // Fly the camera to a global view (Earth as a globe)
+        viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(-74.006, 40.7128, 15000000), // High altitude for a globe view (around New York)
+            orientation: {
+                heading: Cesium.Math.toRadians(0.0), // Facing north
+                pitch: Cesium.Math.toRadians(-90.0), // Looking directly down
+                roll: 0.0
+            }
+        });
+    </script>
+</body>
+</html>

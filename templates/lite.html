@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhuvan Portal Overview</title>
+    <script>
+        let sessionStartTime, sessionEndTime;
+
+        // Track when the session starts
+        window.onload = function() {
+            sessionStartTime = new Date();
+            console.log('Session started at: ' + sessionStartTime.toISOString());
+        };
+
+        // Function to send user activity data
+        function sendUserActivity(data) {
+            fetch('/track_activitylite', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Activity recorded:', result);
+            })
+            .catch(error => {
+                console.error('Error recording activity:', error);
+            });
+        }
+
+        // Track when the user leaves the page
+        window.onbeforeunload = function() {
+            sessionEndTime = new Date();
+            const timeSpent = (sessionEndTime - sessionStartTime) / 1000; // Time in seconds
+            console.log('Session ended at: ' + sessionEndTime.toISOString());
+            console.log('Total time spent: ' + timeSpent + ' seconds');
+
+            // Send session duration data
+            sendUserActivity({
+                event: 'session_end',
+                timeSpent: timeSpent
+            });
+        };
+
+        // Track clicks on links
+        document.addEventListener('click', function(event) {
+            if (event.target.tagName === 'A') {
+                const link = event.target.href;
+                console.log('Link clicked:', link);
+
+                // Send link click activity
+                sendUserActivity({
+                    event: 'link_click',
+                    link: link
+                });
+            }
+        });
+
+        // Track when the user scrolls to different sections
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    const sectionTitle = section.querySelector('h2').innerText;
+                    console.log('Viewed section:', sectionTitle);
+
+                    // Send section view activity
+                    sendUserActivity({
+                        event: 'section_view',
+                        section: sectionTitle
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bhuvan Portal Overview</h1>
+        <div class="section">
+            <h2>About Bhuvan</h2>
+            <p>
+                The Bhuvan portal, developed by the Indian Space Research Organisation (ISRO), provides access to geospatial data and services. 
+                It offers satellite imagery, maps, and various spatial information layers for different applications including agriculture, 
+                disaster management, urban planning, and more.
+            </p>
+        </div>
+        <div class="section">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Access to high-resolution satellite imagery</li>
+                <li>Various geospatial data layers including land use, vegetation, and more</li>
+                <li>Tools for spatial data analysis and visualization</li>
+                <li>Support for disaster management and emergency response</li>
+                <li>Interactive mapping and search functionalities</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Archive Information</h2>
+            <div class="archive">
+                <h3>2024 Updates</h3>
+                <p>In 2024, Bhuvan introduced new high-resolution satellite imagery and enhanced data layers for better visualization of land use changes.</p>
+            </div>
+            <div class="archive">
+                <h3>2023 Highlights</h3>
+                <p>The Bhuvan portal added new tools for urban planning and infrastructure development.</p>
+            </div>
+            <div class="archive">
+                <h3>2022 Milestones</h3>
+                <p>Bhuvan expanded its geospatial data offerings to include new layers related to climate change and natural resource management.</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Useful Links</h2>
+            <ul>
+                <li><a href="https://bhuvan.nrsc.gov.in/" target="_blank">Bhuvan Portal</a></li>
+                <li><a href="https://www.isro.gov.in/" target="_blank">ISRO Official Website</a></li>
+                <li><a href="https://www.nrsc.gov.in/" target="_blank">NRSC Official Website</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

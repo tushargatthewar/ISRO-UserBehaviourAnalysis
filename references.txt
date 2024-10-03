@@ -1,0 +1,9 @@
+Ooms, K., et al. (2015). "Accuracy of Eye-Tracking Systems in Mapping Research." Cartography and GIS Science, 42(3), 196–210.
+Kaltwang, S., et al. (2016). "Continuous Pain Intensity Estimation from Facial Expressions." Advances in Intelligent Systems and Computing, vol. 324, pp. 177-186.
+Soleymani, M., et al. (2012). "Multimodal Emotion Recognition in Response to Videos." IEEE Transactions on Affective Computing, vol. 3, no. 2, pp. 211–223.
+Nwe, T. L., et al. (2003). "Speech Emotion Recognition using Hidden Markov Models." Speech Communication, 41(4), 603–623.
+Han, K., et al. (2014). "Speech Emotion Recognition Using Deep Neural Networks." IEEE ICME, pp. 1-6.
+Gedam, S., & Paul, S. (2017). "Review on Mental Stress Detection using Wearable Sensors." Journal of Sensor Networks, 20(3), 12-25.
+Ahn, S., et al. (2016). "Exploring Neuro-Physiological Correlates of Drivers' Mental Fatigue." Frontiers in Human Neuroscience, 10(219), 1-17.
+Pantic, M., & Rothkrantz, L. (2010). "Toward an Affect-Sensitive Multimodal HCI." Proceedings of the IEEE, vol. 91, no. 9, pp. 1370-1390.
+Koelstra, S., et al. (2012). "EEG Analysis for Affective Brain-Computer Interfaces." IEEE Transactions on Affective Computing, vol. 2, no. 1, pp. 17-31.

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .metric-box {
+            background-color: #1f1f1f;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .visualization {
+            margin: 20px 0;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Region Analytics Dashboard</h1>
+
+        <!-- Key Metrics -->
+        <div class="metric-box">
+            <h2>Key Metrics</h2>
+            <p><strong>Total Region Changes:</strong> {{ total_region_changes }}</p>
+            <p><strong>Average Time Spent:</strong> {{ average_time_spent }} milliseconds</p>
+            <p><strong>Unique Regions Covered:</strong> {{ unique_regions_covered }}</p>
+        </div>
+
+        <!-- Scatter Map -->
+        <div class="visualization">
+            <h2>Region Changes on Map</h2>
+            {{ scatter_map|safe }}
+        </div>
+
+        <!-- Heatmap -->
+        <div class="visualization">
+            <h2>Region Heatmap</h2>
+            <iframe src="{{ url_for('static', filename='heatmap.html') }}"></iframe>
+        </div>
+
+        <!-- Bar Chart -->
+        <div class="visualization">
+            <h2>Most Frequent Destinations</h2>
+            {{ bar_chart|safe }}
+        </div>
+    </div>
+</body>
+</html>

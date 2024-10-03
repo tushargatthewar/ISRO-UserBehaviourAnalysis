@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Satellite Map with OpenLayers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.css" type="text/css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- OpenLayers Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.js"></script>
+    <script>
+        let sessionStartTime, sessionEndTime;
+
+        // Start session when the page loads
+        window.onload = function() {
+            sessionStartTime = new Date();
+            console.log('Session started at: ' + sessionStartTime.toISOString());
+        };
+
+        // Function to send time spent to the backend
+        function sendSessionData(timeSpent) {
+            fetch('/track-time', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    page: 'map',
+                    timeSpent: timeSpent // Time spent in seconds
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Time spent on page recorded:', result);
+            })
+            .catch(error => {
+                console.error('Error recording time spent:', error);
+            });
+        }
+
+        // Calculate session time when user leaves the page
+        window.onbeforeunload = function() {
+            sessionEndTime = new Date();
+            const timeSpent = (sessionEndTime - sessionStartTime) / 1000; // Time in seconds
+            console.log('Session ended at: ' + sessionEndTime.toISOString());
+            console.log('Total time spent: ' + timeSpent + ' seconds');
+
+            // Send session data before leaving the page
+            sendSessionData(timeSpent);
+        };
+
+        // NRSC location coordinates
+        const nrscCoords = ol.proj.fromLonLat([78.4691, 17.4251]);
+
+        // Create a marker feature
+        const markerFeature = new ol.Feature({
+            geometry: new ol.geom.Point(nrscCoords),
+            name: 'National Remote Sensing Centre (NRSC), Hyderabad'
+        });
+
+        // Create a vector source and layer to hold the marker
+        const markerSource = new ol.source.Vector({
+            features: [markerFeature]
+        });
+
+        // Style for the marker with a label
+        const markerStyle = new ol.style.Style({
+            image: new ol.style.Icon({
+                color: '#FF0000',
+                crossOrigin: 'anonymous',
+                src: 'https://openlayers.org/en/latest/examples/data/icon.png'
+            }),
+            text: new ol.style.Text({
+                text: 'National Remote Sensing Centre (NRSC), Hyderabad',
+                font: '12px Calibri,sans-serif',
+                fill: new ol.style.Fill({ color: '#000' }),
+                stroke: new ol.style.Stroke({
+                    color: '#fff', width: 3
+                }),
+                offsetY: -15
+            })
+        });
+
+        const markerLayer = new ol.layer.Vector({
+            source: markerSource,
+            style: markerStyle
+        });
+
+        const map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.XYZ({
+                        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                        attributions: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                    })
+                }),
+                markerLayer
+            ],
+            view: new ol.View({
+                center: nrscCoords,
+                zoom: 12
+            })
+        });
+    </script>
+</body>
+</html>
