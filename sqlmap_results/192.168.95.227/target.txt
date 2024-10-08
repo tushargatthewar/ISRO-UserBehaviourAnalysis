@@ -1,0 +1,1 @@
+http://192.168.95.227:5000/archive (GET)  # sqlmap/sqlmap.py -u http://192.168.95.227:5000/archive --batch --output-dir=sqlmap_results
