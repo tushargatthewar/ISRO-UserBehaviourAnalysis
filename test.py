@@ -5,6 +5,18 @@ import pandas as pd
 import threading
 import time
 from datetime import datetime
+import subprocess  # Import subprocess for running external commands
+from zapv2 import ZAPv2 
+
+# OWASP ZAP settings
+ZAP_API_KEY = 'u3briq8r7a5d9v9la2klvat1iv'  # Replace with your actual ZAP API key
+ZAP_BASE_URL = 'http://localhost:8080'  # The address where ZAP is running
+ZAP_CSV_FILE_PATH = 'zap_results.csv'  # Log ZAP results
+proxies = {
+    'http': 'http://127.0.0.1:8080',
+    'https': 'http://127.0.0.1:8080'
+}
+
 
 app = Flask(__name__)
 
@@ -13,9 +25,10 @@ CSV_FILE_PATH = 'home_user_activity.csv'#home page user activity
 CSV_FILE_PATH_Map= '2DmapTimespent.csv'#2 map timestamp
 CSV_FILE_PATH_Homesession='Homesession.csv'#home timestamp
 CSV_FILE_PATH_archive='archive.csv'#2d-lite timestamp
-
 csv_file = 'archive_user activity.csv'#in process
 CSV_FILE_PATH2 = 'mapLite_user_activity.csv'#lite map user data
+SQLMAP_CSV_FILE_PATH = 'sqlmap_results.csv'
+ZAP_CSV_FILE_PATH = 'zap_results.csv'  # Log ZAP results
 
 @app.route('/')
 def index():
@@ -265,9 +278,87 @@ def track_timearchive():
 
     return jsonify({'status': 'success', 'message': 'Time spent recorded successfully'}), 201
 
+#Below starts threat detection
+
+def initialize_zap():
+    zap = ZAPv2(apikey=ZAP_API_KEY, proxies=proxies)  # No baseurl here
+    zap.baseurl = ZAP_BASE_URL  # Set baseurl separately
+    return zap
 
 
+def log_scan_results(tool_name, output, csv_file_path):
+    """Log scan results to a specific CSV file."""
+    with open(csv_file_path, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([tool_name, datetime.now().strftime('%Y-%m-%d %H:%M:%S'), output])
 
+def run_zap_scan(zap, target_url):
+    """Run OWASP ZAP scan and return the output."""
+    zap.urlopen(target_url)  # Access the URL
+    time.sleep(2)  # Allow the site to be loaded by ZAP
+
+    # Start Active Scan (you can also use Passive Scan or Spider based on needs)
+    scan_id = zap.ascan.scan(target_url)
+    
+    while int(zap.ascan.status(scan_id)) < 100:  # Wait until scan is 100% complete
+        print(f"Scan progress: {zap.ascan.status(scan_id)}%")
+        time.sleep(5)
+
+    print("Scan completed!")
+    
+    # Get the scan results in JSON format
+    scan_results = zap.core.alerts(baseurl=target_url)
+    
+    return scan_results
+
+def run_sqlmap(target_url):
+    """Run SQLMap scan with crawling and return the output."""
+    sqlmap_command = f'python sqlmap/sqlmap.py -u "{target_url}" --crawl=2 --batch --output-dir=sqlmap_results'
+    process = subprocess.run(sqlmap_command, shell=True, capture_output=True, text=True)
+    return process.stdout
+
+@app.route('/scan-sql-injection', methods=['POST'])
+def scan_sql_injection():
+    target_url = request.json.get('target_url')
+    
+    # Run SQLMap scan
+    sqlmap_output = run_sqlmap(target_url)
+
+    # Log SQLMap results
+    log_scan_results('SQLMap', sqlmap_output, SQLMAP_CSV_FILE_PATH)
+    
+    return jsonify({'status': 'success', 'message': 'SQLMap scan completed', 'results': sqlmap_output}), 200
+
+@app.route('/track-url', methods=['POST'])
+def track_url():
+    target_url = request.json.get('target_url')  # Get the redirected URL dynamically
+
+    # Log the URL tracking before scans
+    log_scan_results('URL Tracking', target_url, SQLMAP_CSV_FILE_PATH)  # Log URL tracking to SQLMap results
+
+    # Initialize OWASP ZAP client
+    zap = initialize_zap()
+
+    def scan_and_log():
+        while True:
+            # Perform ZAP scan and log results
+            zap_results = run_zap_scan(zap, target_url)
+            log_scan_results('OWASP ZAP', zap_results, ZAP_CSV_FILE_PATH)
+
+            # Perform SQLMap scan and log results
+            sqlmap_result = run_sqlmap(target_url)
+            log_scan_results('SQLMap', sqlmap_result, SQLMAP_CSV_FILE_PATH)
+
+            print(f"Scanned {target_url} successfully. Waiting for 5 minutes before next scan.")
+            time.sleep(300)  # Sleep for 5 minutes before the next scan
+
+    # Start scanning in a background thread
+    threading.Thread(target=scan_and_log, daemon=True).start()
+
+    return jsonify({
+        'status': 'success',
+        'message': f'URL {target_url} tracking and scans initiated successfully',
+    }), 200
 
 if __name__ == '__main__':
     app.run(debug=True)

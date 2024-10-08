@@ -33,7 +33,28 @@
         window.onload = function() {
             sessionStartTime = new Date();
             console.log('Session started at: ' + sessionStartTime.toISOString());
+            trackCurrentURL();
         };
+
+        function trackCurrentURL() {
+            const targetUrl = window.location.href;  // Get the current URL
+
+            // Send the target URL to the Flask backend
+            fetch('/track-url', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ target_url: targetUrl })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('URL tracking successful:', data);
+                })
+                .catch((error) => {
+                    console.error('Error tracking URL:', error);
+                });
+        }
 
         // Function to send time spent to the backend
         function sendSessionData(timeSpent) {
