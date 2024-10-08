@@ -20,6 +20,14 @@ proxies = {
 
 app = Flask(__name__)
 
+# Overall persistent data
+overall_csv='overallhomedata.csv'
+overall_csv_mapliteuserdata='overall_csv_mapliteuserdata.csv'
+overall_csv_homesession='overall_csv_homesession.csv'
+overall_csv_2DmapTimespent='overall_csv_2DmapTimespent.csv'
+overall_csv_archivetimespent='overall_csv_archivetimespent.csv'
+overall_csv_archive_user='overall_csv_archive_user.csv'
+
 # Path to the CSV file
 CSV_FILE_PATH = 'home_user_activity.csv'#home page user activity
 CSV_FILE_PATH_Map= '2DmapTimespent.csv'#2 map timestamp
@@ -68,6 +76,74 @@ def map():
     #Task bar map page
     return render_template('map.html')
 
+def get_client_ip():
+    """Retrieve the client's IP address from the request."""
+    if request.headers.getlist("X-Forwarded-For"):
+        # If behind a proxy, the client's IP is in the first position
+        ip = request.headers.getlist("X-Forwarded-For")[0].split(',')[0].strip()
+    else:
+        ip = request.remote_addr
+    return ip
+
+#*here is the persistant Data*#
+ #*#
+def overall_homeuserdata():
+    if not os.path.exists(overall_csv):
+        with open(overall_csv,mode='w',newline='') as file:
+            writer=csv.writer(file)
+            writer.writerow(['ip_address',
+                'event', 'element', 'timestamp', 'x', 'y', 'page', 
+                'relatedElement', 'inputValue', 'location', 
+                'destination', 'timeSpent', 'scroll', 'depth', 'timeSpentOnHover'
+            ])
+overall_homeuserdata()
+
+def overall_mapliteuserdata():
+    if not os.path.exists(overall_csv_mapliteuserdata):
+        with open(overall_csv_mapliteuserdata,mode='w',newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['ip_address','event', 'element', 'timestamp', 'x', 'y', 'page', 'relatedElement', 'inputValue', 'location', 'destination', 'timeSpent', 'scroll', 'depth', 'timeSpentOnHover']) 
+
+overall_mapliteuserdata()
+
+def overall_archiveuserdata():
+    if not os.path.exists(overall_csv_archive_user):
+        with open(overall_csv_archive_user, mode='w',newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['ip_address','Timestamp', 'Event', 'TimeSpent', 'Link', 'Section'])
+
+overall_archiveuserdata()
+
+
+def overall_2dmap():
+        if not os.path.exists(overall_csv_2DmapTimespent):
+            with open(overall_csv_2DmapTimespent,mode='w',newline='') as file:
+                writer=csv.writer(file)
+                writer.writerow(['ip_address','page', 'timeSpent'])  
+
+overall_2dmap()
+
+
+def overall_homesession():
+    if not os.path.exists(overall_csv_homesession):
+        with open(overall_csv_homesession,mode='w',newline='') as file:
+            writer=csv.writer(file)
+            writer.writerow(['ip_address','page','timeSpent'])
+
+overall_homesession()
+
+
+def overall_archivesession():
+    if not os.path.exists(overall_csv_archivetimespent):
+        with open(overall_csv_archivetimespent,mode='w',newline='') as file:
+            writer=csv.writer(file)
+            writer.writerow(['ip_address','page','timeSpent'])
+
+overall_archivesession()
+
+#Here is the session wise data is Storing*#
+#*#
+
 def initialize_csv():
     """Delete existing CSV file and create a new one with headers."""
     if os.path.exists(CSV_FILE_PATH):
@@ -75,7 +151,7 @@ def initialize_csv():
     
     with open(CSV_FILE_PATH, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['event', 'element', 'timestamp', 'x', 'y', 'page', 'relatedElement', 'inputValue', 'location', 'destination', 'timeSpent', 'scroll', 'depth', 'timeSpentOnHover'])
+        writer.writerow(['ip_address','event', 'element', 'timestamp', 'x', 'y', 'page', 'relatedElement', 'inputValue', 'location', 'destination', 'timeSpent', 'scroll', 'depth', 'timeSpentOnHover'])
 
 # Initialize the CSV file
 initialize_csv()
@@ -88,7 +164,7 @@ def initialize_csvmaplite():
     
     with open(CSV_FILE_PATH2, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['event', 'element', 'timestamp', 'x', 'y', 'page', 'relatedElement', 'inputValue', 'location', 'destination', 'timeSpent', 'scroll', 'depth', 'timeSpentOnHover'])
+        writer.writerow(['ip_address','event', 'element', 'timestamp', 'x', 'y', 'page', 'relatedElement', 'inputValue', 'location', 'destination', 'timeSpent', 'scroll', 'depth', 'timeSpentOnHover'])
 
 # Initialize the CSV file
 initialize_csvmaplite()
@@ -104,7 +180,7 @@ def initialize_csv1():
     # if not os.path.exists(CSV_FILE_PATH_Map):
     with open(CSV_FILE_PATH_Map, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['page', 'timeSpent'])  # CSV Headers
+        writer.writerow(['ip_address','page', 'timeSpent'])  # CSV Headers
 
 initialize_csv1()
 
@@ -117,7 +193,7 @@ def initialize_csvhome():
     #if not os.path.exists(CSV_FILE_PATH_Homesession):
     with open(CSV_FILE_PATH_Homesession, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['page', 'timeSpent'])  # CSV Headers
+        writer.writerow(['ip_address','page', 'timeSpent'])  # CSV Headers
 
 initialize_csvhome()
 
@@ -130,7 +206,7 @@ def initialize_csvarchive():
     #if not os.path.exists(CSV_FILE_PATH_archive):
     with open(CSV_FILE_PATH_archive, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['page', 'timeSpent'])  # CSV Headers
+        writer.writerow(['ip_address','page', 'timeSpent'])  # CSV Headers
 
 initialize_csvarchive()
 
@@ -141,7 +217,7 @@ def litecsv():
     #if not os.path.exists(csv_file):
     with open(csv_file, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['Timestamp', 'Event', 'TimeSpent', 'Link', 'Section'])
+        writer.writerow(['ip_address','Timestamp', 'Event', 'TimeSpent', 'Link', 'Section'])
 
 litecsv()
 
@@ -151,7 +227,7 @@ def track_click():
     
     # Print the data to debug
     #print(f"Received data: {data}")
-    
+    client_ip = get_client_ip()
     # Extract data from the JSON request
     event = data.get('event', '')  
     element = data.get('element', '')
@@ -172,7 +248,16 @@ def track_click():
     with open(CSV_FILE_PATH, mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([
-            event, element, timestamp, x, y, page, 
+            client_ip,event, element, timestamp, x, y, page, 
+            relatedElement, inputValue, location, 
+            destination, timeSpent, scroll, depth,
+            timeSpentOnHover
+        ])
+
+    with open(overall_csv,mode='a',newline='') as file:
+        writer=csv.writer(file)
+        writer.writerow([
+            client_ip,event, element, timestamp, x, y, page, 
             relatedElement, inputValue, location, 
             destination, timeSpent, scroll, depth,
             timeSpentOnHover
@@ -186,7 +271,7 @@ def archive1():
     
     # Print the data to debug
     #print(f"Received data: {data}")
-    
+    client_ip = get_client_ip()
     # Extract data from the JSON request
     event = data.get('event', '')  
     element = data.get('element', '')
@@ -207,7 +292,16 @@ def archive1():
     with open(CSV_FILE_PATH2, mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([
-            event, element, timestamp, x, y, page, 
+            client_ip, event, element, timestamp, x, y, page, 
+            relatedElement, inputValue, location, 
+            destination, timeSpent, scroll, depth,
+            timeSpentOnHover
+        ])
+
+    with open(overall_csv_mapliteuserdata, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([
+            client_ip, event, element, timestamp, x, y, page, 
             relatedElement, inputValue, location, 
             destination, timeSpent, scroll, depth,
             timeSpentOnHover
@@ -219,6 +313,7 @@ def archive1():
 @app.route('/track_activitylite', methods=['POST'])
 def track_activitylite():
     activity_data = request.json
+    client_ip = get_client_ip()
     event = activity_data.get('event')
     time_spent = activity_data.get('timeSpent', None)
     link = activity_data.get('link', None)
@@ -228,9 +323,13 @@ def track_activitylite():
     # Log activity into CSV file
     with open(csv_file, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([timestamp, event, time_spent, link, section])
+        writer.writerow([client_ip,timestamp, event, time_spent, link, section])
 
-    print(f"User activity recorded: {event} at {timestamp}")
+    with open(overall_csv_archive_user, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([client_ip,timestamp, event, time_spent, link, section])
+
+    
 
     return jsonify({'status': 'success', 'message': 'Activity recorded successfully'}), 201
 
@@ -239,13 +338,18 @@ def track_activitylite():
 @app.route('/track-time', methods=['POST'])
 def track_time():
     data = request.json
+    client_ip = get_client_ip()
     page = data.get('page', '')
     time_spent = data.get('timeSpent', 0)  # Time spent in seconds
 
     # Log the time spent to the CSV file
     with open(CSV_FILE_PATH_Map, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([page, time_spent])
+        writer.writerow([client_ip, page, time_spent])
+
+    with open(overall_csv_2DmapTimespent, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([client_ip, page, time_spent])
 
     return jsonify({'status': 'success', 'message': 'Time spent recorded successfully'}), 201
 
@@ -253,13 +357,19 @@ def track_time():
 @app.route('/track-timehome', methods=['POST'])
 def track_timehome():
     data = request.json
+    client_ip = get_client_ip()
     page = data.get('page', '')
     time_spent = data.get('timeSpent', 0)  # Time spent in seconds
 
     # Log the time spent to the CSV file
     with open(CSV_FILE_PATH_Homesession, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([page, time_spent])
+        writer.writerow([client_ip, page , time_spent])
+
+    with open(overall_csv_homesession, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([client_ip, page , time_spent])
+
 
     return jsonify({'status': 'success', 'message': 'Time spent recorded successfully'}), 201
 
@@ -267,6 +377,7 @@ def track_timehome():
 def track_timearchive():
     data = request.json
     print(data)
+    client_ip = get_client_ip()
     page = data.get('page', '')
     print(page)
     time_spent = data.get('timeSpent', 0)  # Time spent in seconds
@@ -274,12 +385,15 @@ def track_timearchive():
     # Log the time spent to the CSV file
     with open(CSV_FILE_PATH_archive, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([page, time_spent])
+        writer.writerow([client_ip, page , time_spent])
+
+    with open(overall_csv_archivetimespent, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([client_ip, page , time_spent])
 
     return jsonify({'status': 'success', 'message': 'Time spent recorded successfully'}), 201
 
 #Below starts threat detection
-
 def initialize_zap():
     zap = ZAPv2(apikey=ZAP_API_KEY, proxies=proxies)  # No baseurl here
     zap.baseurl = ZAP_BASE_URL  # Set baseurl separately
