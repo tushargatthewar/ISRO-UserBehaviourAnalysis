@@ -983,3 +983,49 @@ please enter number of threads? [Enter for 1 (current)] 1
 [*] ending @ 11:14:26 /2024-10-08/
 
 "
+SQLMap,2024-10-08 11:19:36,"        ___
+       __H__
+ ___ ___[.]_____ ___ ___  {1.8.9.1#dev}
+|_ -| . [']     | .'| . |
+|___|_  [,]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:19:34 /2024-10-08/
+
+[11:19:34] [WARNING] using 'C:\Users\udgir\OneDrive\Documents\GitHub\ISRO-UserBehaviourAnalysis\sqlmap_results' as the output directory
+do you want to check for the existence of site's sitemap(.xml) [y/N] N
+[11:19:34] [INFO] starting crawler for target URL 'http://127.0.0.1:5000/archive'
+[11:19:34] [INFO] searching for links with depth 1
+[11:19:35] [INFO] searching for links with depth 2
+please enter number of threads? [Enter for 1 (current)] 1
+[11:19:35] [WARNING] running in a single-thread mode. This could take a while
+[11:19:35] [WARNING] no usable links found (with GET parameters)
+
+[*] ending @ 11:19:36 /2024-10-08/
+
+"
+SQLMap,2024-10-08 11:24:46,"        ___
+       __H__
+ ___ ___[)]_____ ___ ___  {1.8.9.1#dev}
+|_ -| . [.]     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:24:44 /2024-10-08/
+
+[11:24:44] [WARNING] using 'C:\Users\udgir\OneDrive\Documents\GitHub\ISRO-UserBehaviourAnalysis\sqlmap_results' as the output directory
+do you want to check for the existence of site's sitemap(.xml) [y/N] N
+[11:24:44] [INFO] starting crawler for target URL 'http://127.0.0.1:5000/archive'
+[11:24:44] [INFO] searching for links with depth 1
+[11:24:45] [INFO] searching for links with depth 2
+please enter number of threads? [Enter for 1 (current)] 1
+[11:24:45] [WARNING] running in a single-thread mode. This could take a while
+[11:24:45] [WARNING] no usable links found (with GET parameters)
+
+[*] ending @ 11:24:46 /2024-10-08/
+
+"
