@@ -1,0 +1,4 @@
+ip_address,Timestamp,Event,TimeSpent,Link,Section
+127.0.0.1,2024-10-07 16:16:39,link_click,,https://bhuvan.nrsc.gov.in/,
+127.0.0.1,2024-10-07 16:16:45,link_click,,https://www.nrsc.gov.in/,
+127.0.0.1,2024-10-07 16:16:50,session_end,13.846,,

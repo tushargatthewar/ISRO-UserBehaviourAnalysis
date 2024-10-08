@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISRO Centers Map</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <style>
+        #map {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map and set its view
+        var map = L.map('map').setView([20.5937, 78.9629], 5); // Centered on India
+
+        // Load and display tile layer (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // ISRO Centers with accurate coordinates and website links
+        var isroCenters = [
+            { name: 'ISRO Headquarters, Bangalore', coords: [12.9716, 77.5946], website: 'https://www.isro.gov.in' },
+            { name: 'Vikram Sarabhai Space Centre (VSSC), Thiruvananthapuram', coords: [8.5214, 76.9366], website: 'https://www.vssc.gov.in' },
+            { name: 'Satish Dhawan Space Centre (SDSC), Sriharikota', coords: [13.7199, 80.2305], website: 'https://www.shar.gov.in' },
+            { name: 'U R Rao Satellite Centre (URSC), Bangalore', coords: [13.0312, 77.5641], website: 'https://www.isro.gov.in/ur-sc' },
+            { name: 'Space Applications Centre (SAC), Ahmedabad', coords: [23.0338, 72.5250], website: 'https://www.sac.gov.in' },
+            { name: 'ISRO Propulsion Complex (IPRC), Mahendragiri', coords: [8.2392, 77.7349], website: 'https://www.iprc.gov.in' },
+            { name: 'Liquid Propulsion Systems Centre (LPSC), Valiamala', coords: [8.5074, 76.9346], website: 'https://www.lpsc.gov.in' },
+            { name: 'National Remote Sensing Centre (NRSC), Hyderabad', coords: [17.4251, 78.4691], website: 'https://www.nrsc.gov.in' }
+        ];
+
+        // Add markers for ISRO Centers
+        isroCenters.forEach(center => {
+            var marker = L.marker(center.coords)
+                .bindTooltip(center.name, {permanent: true, direction: 'top', className: 'marker-tooltip'})
+                .bindPopup(`<strong>${center.name}</strong><br><a href="${center.website}" target="_blank">Visit Website</a>`)
+                .addTo(map);
+        });
+
+    </script>
+
+    <style>
+        /* Custom CSS for tooltip */
+        .marker-tooltip {
+            background-color: white;
+            border: 1px solid black;
+            padding: 3px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+    </style>
+
+</body>
+</html>

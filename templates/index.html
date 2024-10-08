@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+   -->
+</head>
+<body>
+
+    <h1>Welcome to the Index Page!</h1>
+
+    <button id="button1" onclick="trackClick('Index Page Button 1', 'index_page')">Index Page Button 1</button>
+    <button id="button2" onclick="trackClick('Index Page Button 2', 'index_page')">Index Page Button 2</button>
+
+    <p class="hover-text" id="hoverText" onmouseover="trackHover('Index Page Hover Text', 'index_page')">Hover over this text on the index page!</p>
+
+    <form onsubmit="trackFormSubmit('Index Page Form', 'index_page'); return false;">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="image-container" id="imageContainer" onmouseover="trackImageHover('Index Page Image', 'index_page')">
+        <img src="image.png" alt="Example Image">
+    </div>
+
+    <div id="map" onclick="trackMapInteraction('Index Page Map - City XYZ', 'index_page')">
+        <p>Map Section: Click on the map!</p>
+    </div>
+
+    <a href="{{ url_for('second_page') }}" onclick="trackPageNavigation('Second Page', 'index_page')">Go to Second Page</a>
+
+    <!-- JavaScript tracking logic embedded in the page -->
+    <script>
+        let startTime = new Date().getTime(); // Track time spent on page
+
+        function trackClick(element, page) {
+            const rect = event.target.getBoundingClientRect();
+            const x = event.clientX - rect.left; // X coordinate relative to the element
+            const y = event.clientY - rect.top;  // Y coordinate relative to the element
+
+            const data = {
+                event: 'click',
+                element: element,
+                timestamp: new Date().toISOString(),
+                x: x,
+                y: y,
+                page: page,
+                relatedElement: event.target.tagName + (event.target.id ? '#' + event.target.id : '') + (event.target.className ? '.' + event.target.className : '')
+            };
+            sendTrackingData(data);
+        }
+
+        function trackHover(element, page) {
+            const rect = event.target.getBoundingClientRect();
+            const x = event.clientX - rect.left; // X coordinate relative to the element
+            const y = event.clientY - rect.top;  // Y coordinate relative to the element
+
+            const data = {
+                event: 'hover',
+                element: element,
+                timestamp: new Date().toISOString(),
+                x: x,
+                y: y,
+                page: page,
+                relatedElement: event.target.tagName + (event.target.id ? '#' + event.target.id : '') + (event.target.className ? '.' + event.target.className : '')
+            };
+            sendTrackingData(data);
+        }
+
+        function trackFormSubmit(element, page) {
+            const inputValue = document.getElementById('search').value;
+            const rect = event.target.getBoundingClientRect();
+            const x = event.clientX - rect.left; // X coordinate relative to the element
+            const y = event.clientY - rect.top;  // Y coordinate relative to the element
+
+            const data = {
+                event: 'form_submit',
+                element: element,
+                inputValue: inputValue,
+                timestamp: new Date().toISOString(),
+                x: x,
+                y: y,
+                page: page,
+                relatedElement: event.target.tagName + (event.target.id ? '#' + event.target.id : '') + (event.target.className ? '.' + event.target.className : '')
+            };
+            sendTrackingData(data);
+            alert('Form Submitted!');
+        }
+
+        function trackImageHover(element, page) {
+            const rect = event.target.getBoundingClientRect();
+            const x = event.clientX - rect.left; // X coordinate relative to the element
+            const y = event.clientY - rect.top;  // Y coordinate relative to the element
+
+            const data = {
+                event: 'image_hover',
+                element: element,
+                timestamp: new Date().toISOString(),
+                x: x,
+                y: y,
+                page: page,
+                relatedElement: event.target.tagName + (event.target.id ? '#' + event.target.id : '') + (event.target.className ? '.' + event.target.className : '')
+            };
+            sendTrackingData(data);
+        }
+
+        function trackMapInteraction(location, page) {
+            const rect = event.target.getBoundingClientRect();
+            const x = event.clientX - rect.left; // X coordinate relative to the element
+            const y = event.clientY - rect.top;  // Y coordinate relative to the element
+
+            const data = {
+                event: 'map_interaction',
+                location: location,
+                timestamp: new Date().toISOString(),
+                x: x,
+                y: y,
+                page: page,
+                relatedElement: event.target.tagName + (event.target.id ? '#' + event.target.id : '') + (event.target.className ? '.' + event.target.className : '')
+            };
+            sendTrackingData(data);
+        }
+
+        function trackPageNavigation(destination, page) {
+            const timeSpent = new Date().getTime() - startTime; // Calculate time spent in milliseconds
+            const data = {
+                event: 'page_navigation',
+                destination: destination,
+                timestamp: new Date().toISOString(),
+                x: event.clientX,
+                y: event.clientY,
+                timeSpent: timeSpent,
+                page: page,
+                relatedElement: event.target.tagName + (event.target.id ? '#' + event.target.id : '') + (event.target.className ? '.' + event.target.className : '')
+            };
+            sendTrackingData(data);
+        }
+
+        function sendTrackingData(data) {
+            fetch('/track-click', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            }).then(response => response.json())
+              .then(data => console.log('Success:', data))
+              .catch((error) => console.error('Error:', error));
+        }
+    </script>
+
+</body>
+</html>
