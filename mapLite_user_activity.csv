@@ -1,4 +1,1 @@
 ip_address,event,element,timestamp,x,y,page,relatedElement,inputValue,location,destination,timeSpent,scroll,depth,timeSpentOnHover
-127.0.0.1,Region Change,Map,2024-10-08T05:44:16.945Z,23.186478324862655,69.91016562499999,/archive,,,India,Gujarat,263,0,0,0
-127.0.0.1,Region Change,Map,2024-10-08T05:44:17.092Z,24.470565189372603,65.36272124161913,/archive,,,Gujarat,,147,0,0,0
-127.0.0.1,Region Change,Map,2024-10-08T05:44:17.724Z,15.279699354321485,97.06441554234152,/archive,,,India,,284,0,0,0

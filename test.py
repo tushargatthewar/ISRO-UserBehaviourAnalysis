@@ -9,7 +9,7 @@ import subprocess  # Import subprocess for running external commands
 from zapv2 import ZAPv2 
 
 # OWASP ZAP settings
-ZAP_API_KEY = '<your_zap_api>'  # Replace with your actual ZAP API key
+ZAP_API_KEY = 'u3briq8r7a5d9v9la2klvat1iv'  # Replace with your actual ZAP API key
 ZAP_BASE_URL = 'http://localhost:8080'  # The address where ZAP is running
 ZAP_CSV_FILE_PATH = 'zap_results.csv'  # Log ZAP results
 proxies = {

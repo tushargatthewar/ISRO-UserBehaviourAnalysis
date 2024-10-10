@@ -1,18 +1,1 @@
 ip_address,event,element,timestamp,x,y,page,relatedElement,inputValue,location,destination,timeSpent,scroll,depth,timeSpentOnHover
-127.0.0.1,hover,Bhuvan 3D Box,2024-10-08T05:44:13.078Z,752,374,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-10-08T05:44:13.091Z,746,401,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-10-08T05:44:13.126Z,741,445,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-10-08T05:44:13.188Z,777,444,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-10-08T05:44:13.195Z,810,429,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:13.265Z,1117,379,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:13.341Z,1240,428,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:13.598Z,1250,450,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:13.620Z,1255,470,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:13.841Z,1268,487,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:13.931Z,1275,505,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:13.966Z,1280,552,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-10-08T05:44:14.416Z,1290,543,info-section,,,,,0,0,0,0
-127.0.0.1,click,Bhuvan Lite Support Button,2024-10-08T05:44:15.242Z,1296,528,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 2D Box,2024-10-08T05:44:19.245Z,393,423,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 2D Box,2024-10-08T05:44:19.252Z,433,478,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 2D Box,2024-10-08T05:44:19.273Z,492,555,info-section,,,,,0,0,0,0

@@ -983,3 +983,97 @@ please enter number of threads? [Enter for 1 (current)] 1
 [*] ending @ 11:14:26 /2024-10-08/
 
 "
+URL Tracking,2024-10-10 12:01:41,http://127.0.0.1:5000/archive
+SQLMap,2024-10-10 12:01:51,"        ___
+       __H__
+ ___ ___[']_____ ___ ___  {1.8.9.1#dev}
+|_ -| . [']     | .'| . |
+|___|_  [,]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 12:01:49 /2024-10-10/
+
+[12:01:49] [WARNING] using 'C:\Users\udgir\OneDrive\Documents\GitHub\ISRO-UserBehaviourAnalysis\sqlmap_results' as the output directory
+do you want to check for the existence of site's sitemap(.xml) [y/N] N
+[12:01:49] [INFO] starting crawler for target URL 'http://127.0.0.1:5000/archive'
+[12:01:49] [INFO] searching for links with depth 1
+[12:01:50] [INFO] searching for links with depth 2
+please enter number of threads? [Enter for 1 (current)] 1
+[12:01:50] [WARNING] running in a single-thread mode. This could take a while
+[12:01:50] [WARNING] no usable links found (with GET parameters)
+
+[*] ending @ 12:01:51 /2024-10-10/
+
+"
+URL Tracking,2024-10-10 12:07:04,http://127.0.0.1:5000/
+SQLMap,2024-10-10 12:07:14,"        ___
+       __H__
+ ___ ___[)]_____ ___ ___  {1.8.9.1#dev}
+|_ -| . [(]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 12:07:13 /2024-10-10/
+
+[12:07:13] [WARNING] using 'C:\Users\udgir\OneDrive\Documents\GitHub\ISRO-UserBehaviourAnalysis\sqlmap_results' as the output directory
+do you want to check for the existence of site's sitemap(.xml) [y/N] N
+[12:07:13] [INFO] starting crawler for target URL 'http://127.0.0.1:5000/'
+[12:07:13] [INFO] searching for links with depth 1
+[12:07:13] [INFO] searching for links with depth 2
+please enter number of threads? [Enter for 1 (current)] 1
+[12:07:13] [WARNING] running in a single-thread mode. This could take a while
+[12:07:14] [WARNING] no usable links found (with GET parameters)
+
+[*] ending @ 12:07:14 /2024-10-10/
+
+"
+SQLMap,2024-10-10 12:12:23,"        ___
+       __H__
+ ___ ___[']_____ ___ ___  {1.8.9.1#dev}
+|_ -| . [(]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 12:12:22 /2024-10-10/
+
+[12:12:22] [WARNING] using 'C:\Users\udgir\OneDrive\Documents\GitHub\ISRO-UserBehaviourAnalysis\sqlmap_results' as the output directory
+do you want to check for the existence of site's sitemap(.xml) [y/N] N
+[12:12:22] [INFO] starting crawler for target URL 'http://127.0.0.1:5000/'
+[12:12:22] [INFO] searching for links with depth 1
+[12:12:23] [INFO] searching for links with depth 2
+please enter number of threads? [Enter for 1 (current)] 1
+[12:12:23] [WARNING] running in a single-thread mode. This could take a while
+[12:12:23] [WARNING] no usable links found (with GET parameters)
+
+[*] ending @ 12:12:23 /2024-10-10/
+
+"
+SQLMap,2024-10-10 12:17:33,"        ___
+       __H__
+ ___ ___[,]_____ ___ ___  {1.8.9.1#dev}
+|_ -| . [)]     | .'| . |
+|___|_  [)]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 12:17:32 /2024-10-10/
+
+[12:17:32] [WARNING] using 'C:\Users\udgir\OneDrive\Documents\GitHub\ISRO-UserBehaviourAnalysis\sqlmap_results' as the output directory
+do you want to check for the existence of site's sitemap(.xml) [y/N] N
+[12:17:32] [INFO] starting crawler for target URL 'http://127.0.0.1:5000/'
+[12:17:32] [INFO] searching for links with depth 1
+[12:17:32] [INFO] searching for links with depth 2
+please enter number of threads? [Enter for 1 (current)] 1
+[12:17:32] [WARNING] running in a single-thread mode. This could take a while
+[12:17:33] [WARNING] no usable links found (with GET parameters)
+
+[*] ending @ 12:17:33 /2024-10-10/
+
+"

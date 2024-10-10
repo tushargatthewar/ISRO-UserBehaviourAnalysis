@@ -16,3 +16,33 @@ ip_address,event,element,timestamp,x,y,page,relatedElement,inputValue,location,d
 127.0.0.1,hover,Bhuvan 2D Box,2024-10-08T05:44:19.245Z,393,423,info-section,,,,,0,0,0,0
 127.0.0.1,hover,Bhuvan 2D Box,2024-10-08T05:44:19.252Z,433,478,info-section,,,,,0,0,0,0
 127.0.0.1,hover,Bhuvan 2D Box,2024-10-08T05:44:19.273Z,492,555,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:31:40.262Z,1273,393,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:31:40.283Z,1271,408,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:31:40.539Z,1276,466,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:31:40.554Z,1275,479,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:31:40.581Z,1271,501,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:31:40.637Z,1270,518,info-section,,,,,0,0,0,0
+127.0.0.1,click,Bhuvan Lite Support Button,2024-10-10T06:31:41.315Z,1268,543,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:32:18.980Z,855,537,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:32:19.278Z,827,529,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:32:19.299Z,733,488,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:32:19.306Z,712,476,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Water App Box,2024-10-10T06:32:45.526Z,686,828,bhuvan-apps,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:33:13.827Z,1067,559,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:33:13.848Z,1147,486,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:33:13.855Z,1177,466,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:33:13.875Z,1255,414,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:33:13.882Z,1286,395,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:33:14.222Z,1321,391,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Forestry App Box,2024-10-10T06:33:14.625Z,1338,686,bhuvan-apps,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Data Archive Box,2024-10-10T06:34:59.058Z,984,520,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Data Archive Box,2024-10-10T06:35:00.011Z,1014,516,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Forestry App Box,2024-10-10T06:35:01.379Z,969,754,bhuvan-apps,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Data Archive Box,2024-10-10T06:35:21.957Z,992,518,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Data Archive Box,2024-10-10T06:35:22.118Z,1029,519,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:40:56.803Z,1372,386,info-section,,,,,70,0,0,0
+127.0.0.1,hover,Bhuvan Lite Box,2024-10-10T06:40:57.129Z,1057,481,info-section,,,,,70,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:40:57.136Z,987,484,info-section,,,,,70,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:40:57.177Z,770,477,info-section,,,,,70,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:40:57.205Z,741,454,info-section,,,,,70,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-10-10T06:40:58.017Z,685,423,info-section,,,,,71,0,0,0

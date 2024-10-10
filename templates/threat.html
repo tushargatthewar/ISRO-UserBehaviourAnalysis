@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Alerts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #dddddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Security Alerts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Source ID</th>
+                <th>Method</th>
+                <th>URL</th>
+                <th>Alert</th>
+                <th>Risk</th>
+                <th>Description</th>
+                <th>Solution</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+                {% for alert in log.alerts %}  <!-- Iterate through alerts for each log -->
+                    <tr>
+                        {% if loop.index == 1 %}  <!-- Display the timestamp and source ID only for the first alert in the row -->
+                            <td>{{ log.timestamp }}</td>
+                            <td>{{ alert.sourceid }}</td>
+                        {% else %}
+                            <td></td>  <!-- Empty cell for other rows -->
+                            <td></td>  <!-- Empty cell for other rows -->
+                        {% endif %}
+                        <td>{{ alert.method }}</td>
+                        <td>{{ alert.url }}</td>
+                        <td>{{ alert.alert }}</td>
+                        <td>{{ alert.risk }}</td>
+                        <td>{{ alert.description }}</td>
+                        <td>{{ alert.solution }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
