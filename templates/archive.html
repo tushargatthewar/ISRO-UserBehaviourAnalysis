@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Maps with Search and NRSC Marker</title>
     <style>
-        body,
-        html {
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
         }
-
         #map {
             height: 90%;
             width: 100%;
         }
-
         #search-box {
             margin: 10px;
             padding: 10px;
@@ -29,7 +25,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Search Box -->
     <input id="search-box" type="text" placeholder="Search for a city">
@@ -38,11 +33,9 @@
     <div id="map"></div>
 
     <!-- Google Maps JavaScript API -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqW1stUXtMZixCINS26qSogWgxDVQfcI&libraries=places&callback=initMap"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALqW1stUXtMZixCINS26qSogWgxDVQfcI&libraries=places&callback=initMap" async defer></script>
     <script>
+       
         let sessionStartTime, sessionEndTime;
 
         window.onload = function () {
@@ -82,16 +75,16 @@
                     timeSpent: timeSpent // Time spent in seconds
                 })
             })
-                .then(response => response.json())
-                .then(result => {
-                    console.log('Time spent on page recorded:', result);
-                })
-                .catch(error => {
-                    console.error('Error recording time spent:', error);
-                });
+            .then(response => response.json())
+            .then(result => {
+                console.log('Time spent on page recorded:', result);
+            })
+            .catch(error => {
+                console.error('Error recording time spent:', error);
+            });
         }
 
-        window.onbeforeunload = function () {
+        window.onbeforeunload = function() {
             sessionEndTime = new Date();
             const timeSpent = (sessionEndTime - sessionStartTime) / 1000; // Time in seconds
             console.log('Session ended at: ' + sessionEndTime.toISOString());
@@ -104,45 +97,45 @@
 
 
 
-        let map, searchBox, geocoder, currentRegion = null;
-        let zoomLevel = 5;
-        let regionStartTime = Date.now();
-        const pageName = '/archive'; // Define the current page name
+    let map, searchBox, geocoder, currentRegion = null;
+    let zoomLevel = 5;
+    let regionStartTime = Date.now();
+    const pageName = '/archive'; // Define the current page name
 
-        // NRSC Outreach Jeedimetla coordinates
-        const nrscOutreach = { lat: 17.5543, lng: 78.3844 };
+    // NRSC Outreach Jeedimetla coordinates
+    const nrscOutreach = { lat: 17.5543, lng: 78.3844 };
 
-        // Initialize map
-        function initMap() {
-            geocoder = new google.maps.Geocoder();
+    // Initialize map
+    function initMap() {
+        geocoder = new google.maps.Geocoder();
 
-            // Create a map centered on India with a marker for NRSC Outreach Jeedimetla
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 20.5937, lng: 78.9629 }, // Center on India
-                zoom: zoomLevel,
-                mapTypeId: 'roadmap'
-            });
+        // Create a map centered on India with a marker for NRSC Outreach Jeedimetla
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 20.5937, lng: 78.9629 }, // Center on India
+            zoom: zoomLevel,
+            mapTypeId: 'roadmap'
+        });
 
+        
 
+        // Add marker for NRSC Outreach Jeedimetla
+        marker = new google.maps.Marker({
+            position: nrscOutreach,
+            map: map,
+            title: 'NRSC Outreach Jeedimetla'
+        });
 
-            // Add marker for NRSC Outreach Jeedimetla
-            marker = new google.maps.Marker({
-                position: nrscOutreach,
-                map: map,
-                title: 'NRSC Outreach Jeedimetla'
-            });
+        // Add a search box
+        const input = document.getElementById('search-box');
+        searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-            // Add a search box
-            const input = document.getElementById('search-box');
-            searchBox = new google.maps.places.SearchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        // Bias the search box results towards the current map's viewport
+        map.addListener('bounds_changed', function () {
+            searchBox.setBounds(map.getBounds());
+        });
 
-            // Bias the search box results towards the current map's viewport
-            map.addListener('bounds_changed', function () {
-                searchBox.setBounds(map.getBounds());
-            });
-
-            searchBox.addListener('places_changed', function () {
+        searchBox.addListener('places_changed', function() {
                 const places = searchBox.getPlaces();
 
                 if (places.length === 0) {
@@ -156,7 +149,7 @@
 
                 // For each place, get the icon, name, and location
                 const bounds = new google.maps.LatLngBounds();
-                places.forEach(function (place) {
+                places.forEach(function(place) {
                     if (!place.geometry || !place.geometry.location) {
                         console.log("Returned place contains no geometry");
                         return;
@@ -173,7 +166,7 @@
                     const placeInfoWindow = new google.maps.InfoWindow({
                         content: '<strong>' + place.name + '</strong>'
                     });
-                    marker.addListener('click', function () {
+                    marker.addListener('click', function() {
                         placeInfoWindow.open(map, marker);
                     });
 
@@ -187,128 +180,129 @@
                 map.fitBounds(bounds);
             });
 
-            // Track map zoom and region changes
-            map.addListener('zoom_changed', trackVisibleRegion);
-            map.addListener('dragend', trackVisibleRegion);
+        // Track map zoom and region changes
+        map.addListener('zoom_changed', trackVisibleRegion);
+        map.addListener('dragend', trackVisibleRegion);
 
-            // Track map clicks
-            map.addListener('click', function (event) {
-                const cursorLatLng = event.latLng;
-                reverseGeocode(cursorLatLng, function (address) {
-                    const eventData = {
-                        event: 'Map Click',
-                        element: 'Map',
-                        timestamp: new Date().toISOString(),
-                        x: event.pixel.x,
-                        y: event.pixel.y,
-                        page: pageName,
-                        relatedElement: '',
-                        inputValue: '',
-                        location: address,
-                        destination: '',
-                        timeSpent: 0,
-                        scroll: 0,
-                        depth: 0,
-                        timeSpentOnHover: 0
-                    };
-                    sendEvent(eventData);
-                });
+        // Track map clicks
+        map.addListener('click', function (event) {
+            const cursorLatLng = event.latLng;
+            reverseGeocode(cursorLatLng, function (address) {
+                const eventData = {
+                    event: 'Map Click',
+                    element: 'Map',
+                    timestamp: new Date().toISOString(),
+                    x: event.pixel.x,
+                    y: event.pixel.y,
+                    page: pageName,
+                    relatedElement: '',
+                    inputValue: '',
+                    location: address,
+                    destination: '',
+                    timeSpent: 0,
+                    scroll: 0,
+                    depth: 0,
+                    timeSpentOnHover: 0
+                };
+                sendEvent(eventData);
             });
+        });
 
-            // Track when user leaves the map
-            window.addEventListener('beforeunload', function () {
-                const cursorLatLng = map.getCenter(); // Using the center for the unload event
-                reverseGeocode(cursorLatLng, function (address) {
+        // Track when user leaves the map
+        window.addEventListener('beforeunload', function () {
+            const cursorLatLng = map.getCenter(); // Using the center for the unload event
+            reverseGeocode(cursorLatLng, function (address) {
+                const timeSpent = Date.now() - regionStartTime;
+                const eventData = {
+                    event: 'Page Unload',
+                    element: 'Map',
+                    timestamp: new Date().toISOString(),
+                    x: cursorLatLng.lat(),
+                    y: cursorLatLng.lng(),
+                    page: pageName,
+                    location: address,
+                    timeSpent: timeSpent
+                };
+                navigator.sendBeacon('/track-click', JSON.stringify(eventData));
+            });
+        });
+
+        // Initialize current region
+        trackVisibleRegion();
+    }
+
+    // Function to reverse geocode latLng to city, state, or country
+    function reverseGeocode(latLng, callback) {
+        geocoder.geocode({ 'location': latLng }, function (results, status) {
+            if (status === 'OK' && results[0]) {
+                let addressComponents = results[0].address_components;
+                let locationName = getLocationName(addressComponents);
+                callback(locationName);
+            } else {
+                callback('Unknown Location');
+            }
+        });
+    }
+
+    // Function to get city, state, or country based on zoom level
+    function getLocationName(addressComponents) {
+        let city = "", state = "", country = "";
+
+        addressComponents.forEach(component => {
+            if (component.types.includes('locality')) city = component.long_name;
+            if (component.types.includes('administrative_area_level_1')) state = component.long_name;
+            if (component.types.includes('country')) country = component.long_name;
+        });
+
+        // Return appropriate level based on zoom
+        if (zoomLevel > 10) {
+            return city || state || country; // Prefer city if zoom is high
+        } else if (zoomLevel > 5) {
+            return state || country; // Prefer state if zoom is medium
+        } else {
+            return country; // Fallback to country if zoom is low
+        }
+    }
+
+    // Function to track visible region changes
+    function trackVisibleRegion() {
+        const center = map.getCenter();
+        zoomLevel = map.getZoom();
+        reverseGeocode(center, function (address) {
+            if (address !== currentRegion) {
+                if (currentRegion) {
                     const timeSpent = Date.now() - regionStartTime;
                     const eventData = {
-                        event: 'Page Unload',
+                        event: 'Region Change',
                         element: 'Map',
                         timestamp: new Date().toISOString(),
-                        x: cursorLatLng.lat(),
-                        y: cursorLatLng.lng(),
+                        x: center.lat(),
+                        y: center.lng(),
                         page: pageName,
-                        location: address,
+                        location: currentRegion,
+                        destination: address,
                         timeSpent: timeSpent
                     };
-                    navigator.sendBeacon('/track-click', JSON.stringify(eventData));
-                });
-            });
-
-            // Initialize current region
-            trackVisibleRegion();
-        }
-
-        // Function to reverse geocode latLng to city, state, or country
-        function reverseGeocode(latLng, callback) {
-            geocoder.geocode({ 'location': latLng }, function (results, status) {
-                if (status === 'OK' && results[0]) {
-                    let addressComponents = results[0].address_components;
-                    let locationName = getLocationName(addressComponents);
-                    callback(locationName);
-                } else {
-                    callback('Unknown Location');
+                    sendEvent(eventData);
                 }
-            });
-        }
-
-        // Function to get city, state, or country based on zoom level
-        function getLocationName(addressComponents) {
-            let city = "", state = "", country = "";
-
-            addressComponents.forEach(component => {
-                if (component.types.includes('locality')) city = component.long_name;
-                if (component.types.includes('administrative_area_level_1')) state = component.long_name;
-                if (component.types.includes('country')) country = component.long_name;
-            });
-
-            // Return appropriate level based on zoom
-            if (zoomLevel > 10) {
-                return city || state || country; // Prefer city if zoom is high
-            } else if (zoomLevel > 5) {
-                return state || country; // Prefer state if zoom is medium
-            } else {
-                return country; // Fallback to country if zoom is low
+                currentRegion = address;
+                regionStartTime = Date.now();
             }
-        }
+        });
+    }
 
-        // Function to track visible region changes
-        function trackVisibleRegion() {
-            const center = map.getCenter();
-            zoomLevel = map.getZoom();
-            reverseGeocode(center, function (address) {
-                if (address !== currentRegion) {
-                    if (currentRegion) {
-                        const timeSpent = Date.now() - regionStartTime;
-                        const eventData = {
-                            event: 'Region Change',
-                            element: 'Map',
-                            timestamp: new Date().toISOString(),
-                            x: center.lat(),
-                            y: center.lng(),
-                            page: pageName,
-                            location: currentRegion,
-                            destination: address,
-                            timeSpent: timeSpent
-                        };
-                        sendEvent(eventData);
-                    }
-                    currentRegion = address;
-                    regionStartTime = Date.now();
-                }
-            });
-        }
-
-        // Function to send event data to Flask backend
-        function sendEvent(eventData) {
-            fetch('/archive1', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(eventData)
-            })
-                .then(response => response.json())
-                .then(data => console.log('Event sent successfully:', data))
-                .catch(error => console.error('Error sending event:', error));
-        }
+    // Function to send event data to Flask backend
+    function sendEvent(eventData) {
+        fetch('/archive1', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(eventData)
+        })
+            .then(response => response.json())
+            .then(data => console.log('Event sent successfully:', data))
+            .catch(error => console.error('Error sending event:', error));
+    }
     </script>
 </body>
 </html>
+

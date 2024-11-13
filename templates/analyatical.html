@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,197 +10,188 @@
     <link rel="stylesheet" href="style.css">
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
 
-        .header {
-            position: relative;
-            padding: 20px;
-            background-color: #ffffff;
-            height: 80px;
-        }
+.header {
+    position: relative;
+    padding: 20px;
+    background-color: #ffffff;
+    height: 80px;
+}
 
-        .logo {
-            height: 60px;
-        }
+.logo {
+    height: 60px;
+}
 
-        .logo.left {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-        }
+.logo.left {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
 
-        .logo.right {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-        }
+.logo.right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
 
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            background-color: #007bff;
-            padding: 10px;
-        }
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #007bff;
+    padding: 10px;
+}
 
-        .nav-btn {
-            padding: 10px 20px;
-            background-color: #ffffff;
-            color: #007bff;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
+.nav-btn {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        .nav-btn:hover {
-            background-color: #c5c6c7;
-        }
+.nav-btn:hover {
+    background-color: #c5c6c7;
+}
 
-        .slider {
-            width: 100%;
-            height: 20vh;
-            overflow: hidden;
-        }
+.slider {
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+}
 
-        .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .info-section {
-            display: flex;
-            justify-content: space-around;
-            margin: 30px 0;
-        }
+.info-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
 
-        .info-box {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 5px;
-            width: 30%;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.info-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .info-box img {
-            width: 50px;
-            /* Adjust size as needed */
-            height: 50px;
-            margin-bottom: 10px;
-        }
+.info-box img {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    margin-bottom: 10px;
+}
 
-        .info-box p {
-            font-size: 16px;
-            margin: 10px 0;
-        }
+.info-box p {
+    font-size: 16px;
+    margin: 10px 0;
+}
 
-        .info-box button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
+.info-box button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        .info-box button:hover {
-            background-color: #c5c6c7;
-        }
+.info-box button:hover {
+    background-color: #c5c6c7;
+}
 
-        .bhuvan-apps {
-            padding: 20px;
-        }
+.bhuvan-apps {
+    padding: 20px;
+}
 
-        .bhuvan-apps h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+.bhuvan-apps h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .app-box {
-            display: inline-block;
-            width: 30%;
-            background-color: #ffffff;
-            padding: 10px;
-            margin: 10px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.app-box {
+    display: inline-block;
+    width: 30%;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .app-box img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
+.app-box img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
 
-        #map {
-            width: 100%;
-            height: 400px;
-            margin-top: 20px;
-        }
+#map {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+/* Marquee Section */
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #405258;
+    padding: 10px;
+}
 
-        /* Marquee Section */
-        .marquee {
-            overflow: hidden;
-            white-space: nowrap;
-            background-color: #405258;
-            padding: 10px;
-        }
+.marquee p {
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+    animation: marquee 10s linear infinite;
+}
 
-        .marquee p {
-            display: inline-block;
-            font-size: 20px;
-            color: white;
-            animation: marquee 10s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .app-box img {
-            width: 80px;
-            /* Size of the icon */
-            height: 80px;
-            margin-bottom: 10px;
-        }
-
-        #map {
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.app-box img {
+    width: 80px;  /* Size of the icon */
+    height: 80px;
+    margin-bottom: 10px;
+}
+#map{
             height: 600px;
             width: 100%;
         }
-
         .leaflet-popup-content-wrapper {
             text-align: center;
         }
-
         .leaflet-popup-content a {
             text-decoration: none;
             color: #007bff;
             font-weight: bold;
         }
-
         .leaflet-popup-content a:hover {
             text-decoration: underline;
         }
+
     </style>
 </head>
-
 <body>
 
     <!-- Top Section with Logos -->
@@ -212,24 +202,17 @@
 
     <!-- Navigation Bar with Buttons -->
     <nav class="navbar">
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('Home Button', 'navigation')">Home</button></a>
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('About Button', 'navigation')">About</button></a>
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('Services Button', 'navigation')">Services</button></a>
-        <a href="{{ url_for('map') }}"><button class="nav-btn"
-                onclick="trackClick('Maps Button', 'navigation')">Maps</button></a>
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('Projects Button', 'navigation')">Projects</button></a>
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('Contact Button', 'navigation')">Contact</button></a>
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('Bhuvan Button', 'navigation')">Bhuvan</button></a>
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('Gallery Button', 'navigation')">Gallery</button></a>
-        <a href="{{ url_for('come') }}"><button class="nav-btn"
-                onclick="trackClick('Support Button', 'navigation')">Support</button></a>
+        <a href="{{ url_for('come') }}"><button class="nav-btn" onclick="trackClick('Home Button', 'navigation')">Home</button></a>
+        <a href="{{ url_for('come') }}"><button class="nav-btn" onclick="trackClick('About Button', 'navigation')">About</button></a>
+        <a href="{{ url_for('come') }}"><button class="nav-btn" onclick="trackClick('Services Button', 'navigation')">Services</button></a>
+        <a href="{{ url_for('map') }}"><button class="nav-btn" onclick="trackClick('Maps Button', 'navigation')">Maps</button></a>
+        <a href="{{ url_for('come') }}"><button class="nav-btn" onclick="trackClick('Projects Button', 'navigation')">Projects</button></a>
+        <a href="{{ url_for('come') }}"><button class="nav-btn" onclick="trackClick('Contact Button', 'navigation')">Contact</button></a>
+        <a href="{{ url_for('display_logs') }}"><button class="nav-btn" onclick="trackClick('Bhuvan Button', 'navigation')">Threat Detection</button></a>
+        <a href="{{ url_for('dashboard') }}"><button class="nav-btn" onclick="trackClick('Gallery Button', 'navigation')">Dashboard</button></a>
+        <form action="/dashboard1">
+            <button type="submit">Anomaly Detection</button>
+        </form>
     </nav>
     <marquee behavior="scroll" direction="left">Welcome to the Bhuvan Portal - Explore Geospatial Data!</marquee>
 
@@ -243,29 +226,23 @@
         <div class="info-box" onmouseover="trackHover('Bhuvan 2D Box', 'info-section')">
             <img src="/static/images/s1.png" alt="Bhuvan 2D">
             <p>Bhuvan 2D</p>
-
-            <a href="{{ url_for('tod') }}" onclick="trackClick('Bhuvan 2D Support Button', 'info-section')"><button
-                    class="nav-btn">Support</button></a>
+           
+            <a href="{{ url_for('tod') }}" onclick="trackClick('Bhuvan 2D Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
         </div>
         <div class="info-box" onmouseover="trackHover('Bhuvan 3D Box', 'info-section')">
             <img src="/static/images/s2.png" alt="Bhuvan 3D">
             <p>Bhuvan 3D</p>
-            <a href="{{ url_for('thd') }}" onclick="trackClick('Bhuvan 3D Support Button', 'info-section')"><button
-                    class="nav-btn">Support</button></a>
+            <a href="{{ url_for('thd') }}" onclick="trackClick('Bhuvan 3D Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
         </div>
         <div class="info-box" onmouseover="trackHover('Bhuvan Lite Box', 'info-section')">
             <img src="/static/images/s3.png" alt="Bhuvan Lite">
             <p>Bhuvan Lite</p>
-            <a href="{{ url_for('archive') }}"
-                onclick="trackClick('Bhuvan Lite Support Button', 'info-section')"><button
-                    class="nav-btn">Support</button></a>
+            <a href="{{ url_for('archive') }}"  onclick="trackClick('Bhuvan Lite Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
         </div>
         <div class="info-box" onmouseover="trackHover('Bhuvan Data Archive Box', 'info-section')">
             <img src="/static/images/s4.png" alt="Bhuvan Data Archive">
             <p>Bhuvan Data Archive</p>
-            <a href="{{ url_for('lite') }}"
-                onclick="trackClick('Bhuvan Data Archive Support Button', 'info-section')"><button
-                    class="nav-btn">Support</button></a>
+            <a href="{{ url_for('lite') }}"onclick="trackClick('Bhuvan Data Archive Support Button', 'info-section')"><button class="nav-btn">Support</button></a>
         </div>
     </section>
 
@@ -275,20 +252,17 @@
         <div class="app-box" onmouseover="trackHover('Agriculture App Box', 'bhuvan-apps')">
             <img src="/static/images/a1.png" alt="Agriculture 1">
             <p>Agriculture</p>
-            <a href="support.html" onclick="trackClick('Agriculture View Button', 'bhuvan-apps')"><button
-                    class="nav-btn">View</button></a>
+            <a href="support.html" onclick="trackClick('Agriculture View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
         </div>
         <div class="app-box" onmouseover="trackHover('Water App Box', 'bhuvan-apps')">
             <img src="/static/images/a2.png" alt="Water 2">
             <p>Water</p>
-            <a href="support.html" onclick="trackClick('Water View Button', 'bhuvan-apps')"><button
-                    class="nav-btn">View</button></a>
+            <a href="support.html" onclick="trackClick('Water View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
         </div>
         <div class="app-box" onmouseover="trackHover('Forestry App Box', 'bhuvan-apps')">
             <img src="/static/images/a3.png" alt="Forestry 3">
             <p>Forestry</p>
-            <a href="support.html" onclick="trackClick('Forestry View Button', 'bhuvan-apps')"><button
-                    class="nav-btn">View</button></a>
+            <a href="support.html" onclick="trackClick('Forestry View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
         </div>
     </section>
     <section class="bhuvan-apps">
@@ -296,59 +270,56 @@
         <div class="app-box" onmouseover="trackHover('Central App Box', 'bhuvan-apps')">
             <img src="/static/images/central_app.png" alt="App 4">
             <p>Central App</p>
-            <a href="support.html" onclick="trackClick('Central App View Button', 'bhuvan-apps')"><button
-                    class="nav-btn">View</button></a>
+            <a href="support.html" onclick="trackClick('Central App View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
         </div>
         <div class="app-box" onmouseover="trackHover('Special App Box', 'bhuvan-apps')">
             <img src="/static/images/special_app.png" alt="App 5">
             <p>Special App</p>
-            <a href="support.html" onclick="trackClick('Special App View Button', 'bhuvan-apps')"><button
-                    class="nav-btn">View</button></a>
+            <a href="support.html" onclick="trackClick('Special App View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
         </div>
         <div class="app-box" onmouseover="trackHover('Gov App Box', 'bhuvan-apps')">
             <img src="/static/images/g_gov_app.png" alt="App 6">
             <p>Gov App</p>
-            <a href="support.html" onclick="trackClick('Gov App View Button', 'bhuvan-apps')"><button
-                    class="nav-btn">View</button></a>
+            <a href="support.html" onclick="trackClick('Gov App View Button', 'bhuvan-apps')"><button class="nav-btn">View</button></a>
         </div>
     </section>
 
     <!-- Map Section using Leaflet.js -->
     <h2>MAP</h2>
     <div id="map"></div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   
     <!-- Leaflet.js Script -->
-
+    
     <script>
-        // Initialize the map and set its view
+       // Initialize the map and set its view
+// Initialize the map and set its view
+let clientIp = '';
 
-        let clientIp = '';
+    // Fetch the client's IP address using ipify
+    axios.get('https://api.ipify.org?format=json')
+        .then(response => {
+            clientIp = response.data.ip;
+            console.log('Client IP Address:', clientIp);
+        })
+        .catch(error => {
+            console.error('Error fetching IP address:', error);
+        });
 
-        // Fetch the client's IP address using ipify
-        axios.get('https://api.ipify.org?format=json')
-            .then(response => {
-                clientIp = response.data.ip;
-                console.log('Client IP Address:', clientIp);
-            })
-            .catch(error => {
-                console.error('Error fetching IP address:', error);
-            });
-
-        let sessionStartTime, sessionEndTime;
-        var map = L.map('map').setView([20.5937, 78.9629], 4); // Zoom level reduced
+let sessionStartTime, sessionEndTime;
+var map = L.map('map').setView([20.5937, 78.9629], 4); // Zoom level reduced
 
 
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>',
-            maxZoom: 18,
-        }).addTo(map);
-
+// Add OpenStreetMap tiles
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>',
+    maxZoom: 18,
+}).addTo(map);
+ 
         window.onload = function () {
             sessionStartTime = new Date();
-            console.log('session started at' + sessionStartTime.toISOString());
+            console.log('Session started at: ' + sessionStartTime.toISOString());
             trackCurrentURL();
         };
 
@@ -372,7 +343,7 @@
                 });
         }
 
-        function sendSessionData(timeSpent) {
+     function sendSessionData(timeSpent) {
             fetch('/track-timehome', {
                 method: 'POST',
                 headers: {
@@ -383,17 +354,17 @@
                     timeSpent: timeSpent // Time spent in seconds
                 })
             })
-                .then(response => response.json())
-                .then(result => {
-                    console.log('Time spent on page recorded:', result);
-                })
-                .catch(error => {
-                    console.error('Error recording time spent:', error);
-                });
+            .then(response => response.json())
+            .then(result => {
+                console.log('Time spent on page recorded:', result);
+            })
+            .catch(error => {
+                console.error('Error recording time spent:', error);
+            });
         }
 
 
-        window.onbeforeunload = function () {
+        window.onbeforeunload = function() {
             sessionEndTime = new Date();
             const timeSpent = (sessionEndTime - sessionStartTime) / 1000; // Time in seconds
             console.log('Session ended at: ' + sessionEndTime.toISOString());
@@ -402,143 +373,142 @@
             // Send session data before leaving the page
             sendSessionData(timeSpent);
         };
-        // Track the time user spends on the map
-        var timeSpent = 0;
-        var interval = setInterval(function () {
-            timeSpent++;
-        }, 1000); // Time is recorded every second
+// Track the time user spends on the map
+var timeSpent = 0;
+var interval = setInterval(function () {
+    timeSpent++;
+}, 1000); // Time is recorded every second
 
-        // Define locations with their coordinates, names, and URLs
-        var isroLocations = [
-            { name: "DOS - Department of Space", lat: 28.6139, lng: 77.2090, url: "http://www.isro.gov.in/about-isro/department-space" }, // New Delhi
-            { name: "ISRO HQ - ISRO Headquarters", lat: 12.9716, lng: 77.5946, url: "http://www.isro.gov.in/" }, // Bengaluru
-            { name: "VSSC - Vikram Sarabhai Space Centre", lat: 8.5241, lng: 76.9366, url: "http://www.vssc.gov.in/" }, // Thiruvananthapuram
-            { name: "LPSC - Liquid Propulsion Systems Centre", lat: 12.9716, lng: 77.5946, url: "http://www.lpsc.gov.in/" }, // Bengaluru
-            { name: "SDSC - Satish Dhawan Space Centre", lat: 13.2050, lng: 80.2730, url: "http://www.sdsctiruchirapalli.gov.in/" }, // Chennai
-            { name: "URSC - U R Rao Satellite Centre", lat: 12.9716, lng: 77.5946, url: "http://www.ursc.gov.in/" }, // Bengaluru
-            { name: "SAC - Space Applications Centre", lat: 23.0225, lng: 72.5714, url: "http://www.sac.gov.in/" }, // Ahmedabad
-            { name: "NRSC - National Remote Sensing Centre", lat: 17.3850, lng: 78.4867, url: "http://www.nrsc.gov.in/" } // Hyderabad
-        ];
+// Define locations with their coordinates, names, and URLs
+var isroLocations = [
+    { name: "DOS - Department of Space", lat: 28.6139, lng: 77.2090, url: "http://www.isro.gov.in/about-isro/department-space" }, // New Delhi
+    { name: "ISRO HQ - ISRO Headquarters", lat: 12.9716, lng: 77.5946, url: "http://www.isro.gov.in/" }, // Bengaluru
+    { name: "VSSC - Vikram Sarabhai Space Centre", lat: 8.5241, lng: 76.9366, url: "http://www.vssc.gov.in/" }, // Thiruvananthapuram
+    { name: "LPSC - Liquid Propulsion Systems Centre", lat: 12.9716, lng: 77.5946, url: "http://www.lpsc.gov.in/" }, // Bengaluru
+    { name: "SDSC - Satish Dhawan Space Centre", lat: 13.2050, lng: 80.2730, url: "http://www.sdsctiruchirapalli.gov.in/" }, // Chennai
+    { name: "URSC - U R Rao Satellite Centre", lat: 12.9716, lng: 77.5946, url: "http://www.ursc.gov.in/" }, // Bengaluru
+    { name: "SAC - Space Applications Centre", lat: 23.0225, lng: 72.5714, url: "http://www.sac.gov.in/" }, // Ahmedabad
+    { name: "NRSC - National Remote Sensing Centre", lat: 17.3850, lng: 78.4867, url: "http://www.nrsc.gov.in/" } // Hyderabad
+];
 
-        // Add markers with popups and links
-        isroLocations.forEach(function (location) {
-            var marker = L.marker([location.lat, location.lng])
-                .addTo(map)
-                .bindPopup('<b>' + location.name + '</b><br><a href="' + location.url + '" target="_blank">Visit Website</a>')
-                .bindTooltip(location.name, { permanent: true, direction: 'right' })
-                .on('click', function (e) {
-                    trackClick('Map Marker: ' + location.name, 'map', e.latlng);
-                })
-                .on('mouseover', function (e) {
-                    trackHover('Map Marker: ' + location.name, 'map', e.latlng);
-                });
+// Add markers with popups and links
+isroLocations.forEach(function(location) {
+    var marker = L.marker([location.lat, location.lng])
+        .addTo(map)
+        .bindPopup('<b>' + location.name + '</b><br><a href="' + location.url + '" target="_blank">Visit Website</a>')
+        .bindTooltip(location.name, { permanent: true, direction: 'right' })
+        .on('click', function(e) {
+            trackClick('Map Marker: ' + location.name, 'map', e.latlng);
+        })
+        .on('mouseover', function(e) {
+            trackHover('Map Marker: ' + location.name, 'map', e.latlng);
         });
+});
 
-        // Track mouse coordinates when moving over the map
-        map.on('mousemove', function (event) {
-            document.getElementById('mouse-coords').innerText = 'Mouse coordinates: ' + event.latlng.lat + ', ' + event.latlng.lng;
-        });
+// Track mouse coordinates when moving over the map
+map.on('mousemove', function(event) {
+    document.getElementById('mouse-coords').innerText = 'Mouse coordinates: ' + event.latlng.lat + ', ' + event.latlng.lng;
+});
 
-        // Track map click events and log to Flask
-        map.on('click', function (event) {
-            trackClick('Map Clicked', 'map', event.latlng);
-        });
+// Track map click events and log to Flask
+map.on('click', function(event) {
+    trackClick('Map Clicked', 'map', event.latlng);
+});
 
-        // Track zoom events and send to Flask
-        map.on('zoomend', function () {
-            trackEvent('Zoom Event', 'map', map.getCenter(), map.getZoom());
-        });
+// Track zoom events and send to Flask
+map.on('zoomend', function() {
+    trackEvent('Zoom Event', 'map', map.getCenter(), map.getZoom());
+});
 
-        // Function to track clicks
-        function trackClick(element, page, location) {
-            var data = createTrackingData('click', element, page, location);
-            sendDataToFlask(data);
-        }
+// Function to track clicks
+function trackClick(element, page, location) {
+    var data = createTrackingData('click', element, page, location);
+    sendDataToFlask(data);
+}
 
-        // Function to track hover events
-        function trackHover(element, page, location) {
-            var data = createTrackingData('hover', element, page, location);
-            sendDataToFlask(data);
-        }
+// Function to track hover events
+function trackHover(element, page, location) {
+    var data = createTrackingData('hover', element, page, location);
+    sendDataToFlask(data);
+}
 
-        // Track general events like zoom
-        function trackEvent(eventType, page, location, additionalInfo = null) {
-            var data = {
-                event: eventType,
-                element: eventType,
-                timestamp: new Date().toISOString(),
-                x: null,
-                y: null,
-                page: page,
-                location: location ? location.lat + ', ' + location.lng : null,
-                additionalInfo: additionalInfo,
-                timeSpent: timeSpent
-            };
-            sendDataToFlask(data);
-        }
+// Track general events like zoom
+function trackEvent(eventType, page, location, additionalInfo = null) {
+    var data = {
+        event: eventType,
+        element: eventType,
+        timestamp: new Date().toISOString(),
+        x: null,
+        y: null,
+        page: page,
+        location: location ? location.lat + ', ' + location.lng : null,
+        additionalInfo: additionalInfo,
+        timeSpent: timeSpent
+    };
+    sendDataToFlask(data);
+}
 
-        // Function to create the data structure for tracking clicks and hovers
-        function createTrackingData(eventType, element, page, location) {
-            return {
-                event: eventType,
-                element: element,
-                timestamp: new Date().toISOString(),
-                x: event.clientX || null,
-                y: event.clientY || null,
-                page: page,
-                location: location ? location.lat + ', ' + location.lng : null,
-                timeSpent: timeSpent
-            };
-        }
+// Function to create the data structure for tracking clicks and hovers
+function createTrackingData(eventType, element, page, location) {
+    return {
+        event: eventType,
+        element: element,
+        timestamp: new Date().toISOString(),
+        x: event.clientX || null,
+        y: event.clientY || null,
+        page: page,
+        location: location ? location.lat + ', ' + location.lng : null,
+        timeSpent: timeSpent
+    };
+}
 
-        // Function to send tracking data to Flask
-        function sendDataToFlask(data) {
-            fetch('/track-click', {  // Endpoint where Flask will handle the data
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(result => {
-                    console.log('Data sent successfully:', result);
-                })
-                .catch(error => {
-                    console.error('Error sending data:', error);
-                });
-        }
+// Function to send tracking data to Flask
+function sendDataToFlask(data) {
+    fetch('/track-click', {  // Endpoint where Flask will handle the data
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Data sent successfully:', result);
+    })
+    .catch(error => {
+        console.error('Error sending data:', error);
+    });
+}
 
-        // Show mouse coordinates on the page
-        document.body.innerHTML += '<div id="mouse-coords" style="position: absolute; bottom: 10px; right: 10px; background: white; padding: 5px;">Mouse coordinates: </div>';
+// Show mouse coordinates on the page
+document.body.innerHTML += '<div id="mouse-coords" style="position: absolute; bottom: 10px; right: 10px; background: white; padding: 5px;">Mouse coordinates: </div>';
 
-        // Track scroll event on the window (page)
-        window.addEventListener('scroll', function () {
-            var scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            trackScroll(scrollPercentage);
-        });
+// Track scroll event on the window (page)
+window.addEventListener('scroll', function() {
+    var scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    trackScroll(scrollPercentage);
+});
 
-        // Function to track scroll depth and send it to Flask
-        function trackScroll(scrollDepth) {
-            var data = {
-                event: 'scroll',
-                element: 'page',
-                timestamp: new Date().toISOString(),
-                scrollDepth: scrollDepth,
-                timeSpent: timeSpent
-            };
-            sendDataToFlask(data);
-        }
+// Function to track scroll depth and send it to Flask
+function trackScroll(scrollDepth) {
+    var data = {
+        event: 'scroll',
+        element: 'page',
+        timestamp: new Date().toISOString(),
+        scrollDepth: scrollDepth,
+        timeSpent: timeSpent
+    };
+    sendDataToFlask(data);
+}
 
-        // Track all clicks on the page
-        document.addEventListener('click', function (event) {
-            var target = event.target;
-            var element = target.tagName + (target.id ? ' #' + target.id : ''); // tag name and ID if available
-            trackClick(element, 'page', { lat: null, lng: null }); // Tracking page-level clicks
-        });
+// Track all clicks on the page
+document.addEventListener('click', function(event) {
+    var target = event.target;
+    var element = target.tagName + (target.id ? ' #' + target.id : ''); // tag name and ID if available
+    trackClick(element, 'page', { lat: null, lng: null }); // Tracking page-level clicks
+});
 
     </script>
-
+    
 </body>
-
 </html>

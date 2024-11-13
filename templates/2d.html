@@ -25,7 +25,6 @@
     <div id="map"></div>
 
     <!-- OpenLayers Library -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol.js"></script>
     <script>
         let sessionStartTime, sessionEndTime;
@@ -34,28 +33,7 @@
         window.onload = function() {
             sessionStartTime = new Date();
             console.log('Session started at: ' + sessionStartTime.toISOString());
-            trackCurrentURL();
         };
-
-        function trackCurrentURL() {
-            const targetUrl = window.location.href;  // Get the current URL
-
-            // Send the target URL to the Flask backend
-            fetch('/track-url', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ target_url: targetUrl })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('URL tracking successful:', data);
-                })
-                .catch((error) => {
-                    console.error('Error tracking URL:', error);
-                });
-        }
 
         // Function to send time spent to the backend
         function sendSessionData(timeSpent) {

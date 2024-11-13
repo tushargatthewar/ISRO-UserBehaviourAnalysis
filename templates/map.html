@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISRO Centers Map</title>
-
+    
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
+    
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
+    
     <style>
         #map {
             height: 100vh;
@@ -19,13 +18,13 @@
         }
     </style>
 </head>
-
 <body>
 
     <div id="map"></div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
 
+    <script>
+        // Initialize the map and set its view
+        var map = L.map('map').setView([20.5937, 78.9629], 5); // Centered on India
         let sessionStartTime, sessionEndTime;
 
         window.onload = function () {
@@ -54,39 +53,6 @@
                 });
         }
 
-        function sendSessionData(timeSpent) {
-            fetch('/track_timearchive', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    page: 'Bhuvan Lite Support Page',
-                    timeSpent: timeSpent // Time spent in seconds
-                })
-            })
-                .then(response => response.json())
-                .then(result => {
-                    console.log('Time spent on page recorded:', result);
-                })
-                .catch(error => {
-                    console.error('Error recording time spent:', error);
-                });
-        }
-
-        window.onbeforeunload = function () {
-            sessionEndTime = new Date();
-            const timeSpent = (sessionEndTime - sessionStartTime) / 1000; // Time in seconds
-            console.log('Session ended at: ' + sessionEndTime.toISOString());
-            console.log('Total time spent: ' + timeSpent + ' seconds');
-
-            // Send session data before leaving the page
-            sendSessionData(timeSpent);
-        };
-
-        // Initialize the map and set its view
-        var map = L.map('map').setView([20.5937, 78.9629], 5); // Centered on India
-
         // Load and display tile layer (OpenStreetMap)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -107,7 +73,7 @@
         // Add markers for ISRO Centers
         isroCenters.forEach(center => {
             var marker = L.marker(center.coords)
-                .bindTooltip(center.name, { permanent: true, direction: 'top', className: 'marker-tooltip' })
+                .bindTooltip(center.name, {permanent: true, direction: 'top', className: 'marker-tooltip'})
                 .bindPopup(`<strong>${center.name}</strong><br><a href="${center.website}" target="_blank">Visit Website</a>`)
                 .addTo(map);
         });
@@ -126,5 +92,4 @@
     </style>
 
 </body>
-
 </html>

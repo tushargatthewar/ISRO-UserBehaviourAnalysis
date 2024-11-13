@@ -1,1 +1,0 @@
-http://127.0.0.1:5000/ (GET)  # sqlmap/sqlmap.py -u http://127.0.0.1:5000/ --batch --output-dir=sqlmap_results

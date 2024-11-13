@@ -1,0 +1,9 @@
+Flask
+pandas
+plotly
+Pillow
+dash
+folium
+scikit-learn
+zap
+python-owasp-zap-v2.4
