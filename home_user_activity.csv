@@ -1,43 +1,9 @@
 ip_address,event,element,timestamp,x,y,page,relatedElement,inputValue,location,destination,timeSpent,scroll,depth,timeSpentOnHover
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:41.157Z,624,498,info-section,,,,,0,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:44.937Z,510,549,info-section,,,,,3,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:45.013Z,995,407,info-section,,,,,3,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.018Z,1380,390,info-section,,,,,4,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.039Z,1262,481,info-section,,,,,4,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.046Z,1228,513,info-section,,,,,4,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.053Z,1192,537,info-section,,,,,4,0,0,0
-127.0.0.1,hover,Water App Box,2024-11-13T16:52:46.094Z,972,687,bhuvan-apps,,,,,4,0,0,0
-127.0.0.1,hover,Water App Box,2024-11-13T16:52:46.108Z,903,730,bhuvan-apps,,,,,4,0,0,0
-127.0.0.1,hover,Water App Box,2024-11-13T16:52:46.434Z,839,727,bhuvan-apps,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:46.573Z,676,547,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:46.580Z,709,521,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:46.587Z,747,497,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:46.594Z,784,474,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:46.601Z,824,453,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.635Z,973,408,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.719Z,1075,468,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.733Z,1043,507,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Water App Box,2024-11-13T16:52:46.781Z,805,676,bhuvan-apps,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:46.892Z,838,532,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:46.913Z,963,461,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:47.024Z,1006,472,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:47.031Z,959,494,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:47.038Z,933,507,info-section,,,,,5,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:49.147Z,656,562,info-section,,,,,8,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:49.216Z,736,544,info-section,,,,,8,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:49.313Z,720,545,info-section,,,,,8,0,0,0
-127.0.0.1,hover,Agriculture App Box,2024-11-13T16:52:49.383Z,391,679,bhuvan-apps,,,,,8,0,0,0
-127.0.0.1,hover,Agriculture App Box,2024-11-13T16:52:49.410Z,345,694,bhuvan-apps,,,,,8,0,0,0
-127.0.0.1,hover,Bhuvan 2D Box,2024-11-13T16:52:49.542Z,449,538,info-section,,,,,8,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:49.549Z,475,505,info-section,,,,,8,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:49.556Z,499,479,info-section,,,,,8,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:49.563Z,528,452,info-section,,,,,8,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:51.048Z,680,395,info-section,,,,,9,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:51.068Z,601,472,info-section,,,,,9,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:51.075Z,577,498,info-section,,,,,9,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:51.228Z,665,564,info-section,,,,,10,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:51.235Z,710,541,info-section,,,,,10,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-13T16:52:51.242Z,755,519,info-section,,,,,10,0,0,0
-127.0.0.1,hover,Bhuvan Lite Box,2024-11-13T16:52:51.277Z,979,395,info-section,,,,,10,0,0,0
-127.0.0.1,click,Bhuvan Button,2024-11-13T16:52:54.199Z,1294,98,navigation,,,,,13,0,0,0
-127.0.0.1,click,BUTTON,2024-11-13T16:52:54.199Z,1294,98,page,,,"null, null",,13,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:35:49.359Z,808,382,info-section,,,,,2,0,0,0
+127.0.0.1,hover,Water App Box,2024-11-14T11:36:04.888Z,784,768,bhuvan-apps,,,,,17,0,0,0
+127.0.0.1,hover,Water App Box,2024-11-14T11:36:05.079Z,767,768,bhuvan-apps,,,,,17,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:36:05.246Z,544,564,info-section,,,,,18,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:36:05.274Z,588,483,info-section,,,,,18,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:36:05.281Z,608,446,info-section,,,,,18,0,0,0
+127.0.0.1,click,Bhuvan Button,2024-11-14T11:36:07.638Z,1310,104,navigation,,,,,20,0,0,0
+127.0.0.1,click,BUTTON,2024-11-14T11:36:07.638Z,1310,104,page,,,"null, null",,20,0,0,0

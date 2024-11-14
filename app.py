@@ -880,7 +880,7 @@ def dashboard1():
 ###########################################################################################
 ################################################################################
 # OWASP ZAP settings
-ZAP_API_KEY = '<ZAP API key>'  # Replace with your actual ZAP API key
+ZAP_API_KEY = 'u3briq8r7a5d9v9la2klvat1iv'  # Replace with your actual ZAP API key
 ZAP_BASE_URL = 'http://localhost:8080'  # The address where ZAP is running
 ZAP_CSV_FILE_PATH = 'zap_results.csv'  # Log ZAP results
 proxies = {
@@ -902,7 +902,7 @@ def log_scan_results(tool_name, output, csv_file_path):
 
 def run_zap_scan(zap, target_url):
     """Run OWASP ZAP scan and return the output."""
-    zap.urlopen(target_url)  # Access the URL
+    zap.urlopen(target_url)  # Access the URL 
     time.sleep(2)  # Allow the site to be loaded by ZAP
 
     # Start Active Scan (you can also use Passive Scan or Spider based on needs)
