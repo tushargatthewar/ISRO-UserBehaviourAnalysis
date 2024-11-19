@@ -1,9 +1,16 @@
 ip_address,event,element,timestamp,x,y,page,relatedElement,inputValue,location,destination,timeSpent,scroll,depth,timeSpentOnHover
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:35:49.359Z,808,382,info-section,,,,,2,0,0,0
-127.0.0.1,hover,Water App Box,2024-11-14T11:36:04.888Z,784,768,bhuvan-apps,,,,,17,0,0,0
-127.0.0.1,hover,Water App Box,2024-11-14T11:36:05.079Z,767,768,bhuvan-apps,,,,,17,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:36:05.246Z,544,564,info-section,,,,,18,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:36:05.274Z,588,483,info-section,,,,,18,0,0,0
-127.0.0.1,hover,Bhuvan 3D Box,2024-11-14T11:36:05.281Z,608,446,info-section,,,,,18,0,0,0
-127.0.0.1,click,Bhuvan Button,2024-11-14T11:36:07.638Z,1310,104,navigation,,,,,20,0,0,0
-127.0.0.1,click,BUTTON,2024-11-14T11:36:07.638Z,1310,104,page,,,"null, null",,20,0,0,0
+127.0.0.1,hover,Bhuvan 3D Box,2024-11-19T11:04:37.032Z,513,418,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Agriculture App Box,2024-11-19T11:04:47.853Z,487,791,bhuvan-apps,,,,,10,0,0,0
+127.0.0.1,hover,Agriculture App Box,2024-11-19T11:04:47.863Z,460,751,bhuvan-apps,,,,,10,0,0,0
+127.0.0.1,hover,Bhuvan 2D Box,2024-11-19T11:04:47.903Z,395,476,info-section,,,,,10,0,0,0
+127.0.0.1,hover,Bhuvan 2D Box,2024-11-19T11:04:47.909Z,396,398,info-section,,,,,10,0,0,0
+127.0.0.1,click,Bhuvan Button,2024-11-19T11:04:50.413Z,1290,102,navigation,,,,,13,0,0,0
+127.0.0.1,click,BUTTON,2024-11-19T11:04:50.414Z,1290,102,page,,,"null, null",,13,0,0,0
+127.0.0.1,hover,Bhuvan 2D Box,2024-11-19T11:04:56.580Z,325,377,info-section,,,,,14,0,0,0
+127.0.0.1,hover,Bhuvan 2D Box,2024-11-19T11:04:56.643Z,378,471,info-section,,,,,14,0,0,0
+127.0.0.1,hover,Bhuvan 2D Box,2024-11-19T11:05:00.444Z,410,377,info-section,,,,,0,0,0,0
+127.0.0.1,hover,Water App Box,2024-11-19T11:05:08.872Z,616,728,bhuvan-apps,,,,,8,0,0,0
+127.0.0.1,hover,Agriculture App Box,2024-11-19T11:05:09.046Z,582,722,bhuvan-apps,,,,,8,0,0,0
+127.0.0.1,hover,Bhuvan 2D Box,2024-11-19T11:05:09.087Z,343,557,info-section,,,,,8,0,0,0
+127.0.0.1,click,Bhuvan Button,2024-11-19T11:05:11.528Z,1288,108,navigation,,,,,11,0,0,0
+127.0.0.1,click,BUTTON,2024-11-19T11:05:11.528Z,1288,108,page,,,"null, null",,11,0,0,0
