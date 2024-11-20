@@ -1,0 +1,6 @@
+ip_address,event,element,timestamp,x,y,page,relatedElement,inputValue,location,destination,timeSpent,scroll,depth,timeSpentOnHover
+127.0.0.1,hover,Bhuvan 3D page,2024-11-19T10:46:10.352Z,812,547,info-section,,,,,9,0,0,0
+127.0.0.1,hover,Bhuvan 3D page,2024-11-19T10:46:10.373Z,731,413,info-section,,,,,9,0,0,0
+127.0.0.1,hover,Bhuvan 3D page,2024-11-19T10:46:10.379Z,715,379,info-section,,,,,9,0,0,0
+127.0.0.1,click,Threat,2024-11-19T10:46:12.152Z,1319,112,navigation,,,,,11,0,0,0
+127.0.0.1,click,BUTTON,2024-11-19T10:46:12.152Z,1319,112,page,,,"null, null",,11,0,0,0

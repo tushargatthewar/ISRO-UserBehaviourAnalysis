@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Top  Recommendations</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Element</th>
+              
+                <th>Total Time Spent(milisceconds)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if recommendations.empty %}
+                <tr><td colspan="3">No recommendations available.</td></tr>
+            {% else %}
+                {% for row in recommendations.itertuples() %}
+                <tr>
+                    <td>{{ row.element }}</td>
+                   
+                    <td>{{ row.timeSpent }}</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
