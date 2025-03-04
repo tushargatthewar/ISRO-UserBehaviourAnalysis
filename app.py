@@ -880,7 +880,7 @@ def dashboard1():
 ###########################################################################################
 ################################################################################
 # OWASP ZAP settings
-ZAP_API_KEY = 'u3briq8r7a5d9v9la2klvat1iv'  # Replace with your actual ZAP API key
+ZAP_API_KEY = 'ljhfl2acbddaflnr0du8b1e81p'  # Replace with your actual ZAP API key
 ZAP_BASE_URL = 'http://localhost:8080'  # The address where ZAP is running
 ZAP_CSV_FILE_PATH = 'zap_results.csv'  # Log ZAP results
 proxies = {
